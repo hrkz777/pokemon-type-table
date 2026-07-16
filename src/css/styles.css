@@ -1,8 +1,6 @@
-/* 日本語フォントの読み込み */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
 
 :root {
-	--bg-kicker: rgba(255, 255, 255, 0.62);
 	--bg-card: rgba(255, 255, 255, 0.92);
 	--bg-tab-hover: #9e9e9e;
 	--bg-tab-active: #ffffff;
@@ -14,9 +12,8 @@
 
 	--card-border: rgba(93, 68, 49, 0.14);
 	--text-main: #2d241d;
-	--text-sub: #8f8f8f;
+	--text-sub: #6c625a;
 	--shadow: 0 20px 40px rgba(70, 46, 28, 0.12);
-	--accent: #7d4931;
 }
 
 * {
@@ -28,10 +25,6 @@ body {
 	margin: 0;
 	min-height: 100vh;
 	color: var(--text-main);
-}
-
-#app {
-	min-height: 100vh;
 }
 
 .page {
@@ -49,14 +42,6 @@ h1 {
 	font-size: clamp(2rem, 4vw, 3.5rem);
 	line-height: 1.05;
 	letter-spacing: -0.04em;
-}
-
-.hero p {
-	margin: 14px 0 0;
-	max-width: 720px;
-	color: var(--text-sub);
-	font-size: 1rem;
-	line-height: 1.8;
 }
 
 .shell {
@@ -90,7 +75,7 @@ h1 {
 
 .tab-button:hover {
 	background: var(--bg-tab-hover);
-	color: var(--text-sub);
+	color: var(--text-main);
 }
 
 .tab-button[aria-selected="true"] {
@@ -122,20 +107,6 @@ h1 {
 	margin: 0;
 	font-size: clamp(1.35rem, 2vw, 1.8rem);
 	letter-spacing: -0.03em;
-}
-
-.panel-header p {
-	margin: 6px 0 0;
-	color: var(--text-sub);
-}
-
-.helper {
-	margin: 0;
-	padding: 8px 12px;
-	border-radius: 14px;
-	background: var(--bg-tab-hover);
-	color: var(--text-sub);
-	font-size: 0.9rem;
 }
 
 .table-wrap {
@@ -185,7 +156,6 @@ tbody th,
 tbody td {
 	padding: 16px;
 	border-bottom: 1px solid rgba(93, 68, 49, 0.5);
-	vertical-align: top;
 	vertical-align: middle;
 }
 
@@ -215,6 +185,18 @@ tbody tr:last-child td {
 	border-radius: 999px;
 	font-weight: 700;
 	white-space: nowrap;
+	background: var(--type-bg, #ddd4c8);
+	color: var(--type-fg, #fffdfa);
+	border: 2px solid var(--type-outline, rgba(34, 25, 18, 0.18));
+	text-shadow:
+		2px 0 var(--type-outline, rgba(34, 25, 18, 0.18)),
+		-2px 0 var(--type-outline, rgba(34, 25, 18, 0.18)),
+		0 2px var(--type-outline, rgba(34, 25, 18, 0.18)),
+		0 -2px var(--type-outline, rgba(34, 25, 18, 0.18)),
+		2px 2px var(--type-outline, rgba(34, 25, 18, 0.18)),
+		-2px -2px var(--type-outline, rgba(34, 25, 18, 0.18)),
+		2px -2px var(--type-outline, rgba(34, 25, 18, 0.18)),
+		-2px 2px var(--type-outline, rgba(34, 25, 18, 0.18));
 }
 
 .type-badge {
@@ -237,39 +219,6 @@ tbody tr:last-child td {
 .empty {
 	color: var(--text-sub);
 	font-size: 0.9rem;
-}
-
-.status {
-	padding: 24px 18px 30px;
-	color: var(--text-sub);
-}
-
-.status.is-loading,
-.status.is-error {
-	display: grid;
-	place-items: center;
-	min-height: 100vh;
-	padding: 32px;
-}
-
-.status-card {
-	width: min(560px, 100%);
-	padding: 24px 26px;
-	border-radius: 24px;
-	background: var(--bg-card);
-	border: 1px solid var(--card-border);
-	box-shadow: var(--shadow);
-}
-
-.status-card h2 {
-	margin: 0 0 10px;
-	font-size: 1.3rem;
-}
-
-.status-card p {
-	margin: 0;
-	color: var(--text-sub);
-	line-height: 1.7;
 }
 
 @keyframes fade-in {
@@ -323,3 +272,5 @@ tbody tr:last-child td {
 		font-size: 0.82rem;
 	}
 }
+
+
