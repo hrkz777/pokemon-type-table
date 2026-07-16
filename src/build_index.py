@@ -21,6 +21,7 @@ OUTPUT_HTML_PATH = DOCS_DIR / "index.html"
 OUTPUT_STYLES_PATH = DOCS_DIR / "css" / "styles.css"
 OUTPUT_TYPES_CSS_PATH = DOCS_DIR / "css" / "types.css"
 OUTPUT_SCRIPT_PATH = DOCS_DIR / "js" / "app.js"
+OUTPUT_NOJEKYLL_PATH = DOCS_DIR / ".nojekyll"
 
 HTML_INDENT = "\t"
 
@@ -371,6 +372,7 @@ def write_support_files() -> None:
     shutil.copyfile(STYLES_PATH, OUTPUT_STYLES_PATH)
     shutil.copyfile(TYPES_CSS_PATH, OUTPUT_TYPES_CSS_PATH)
     shutil.copyfile(SCRIPT_PATH, OUTPUT_SCRIPT_PATH)
+    OUTPUT_NOJEKYLL_PATH.write_text("", encoding="utf-8")
 
 
 def clean_output_directory() -> None:
@@ -394,10 +396,12 @@ def main() -> None:
         f'{OUTPUT_HTML_PATH.relative_to(ROOT_DIR)}, '
         f'{OUTPUT_STYLES_PATH.relative_to(ROOT_DIR)}, '
         f'{OUTPUT_TYPES_CSS_PATH.relative_to(ROOT_DIR)}, '
-        f'{OUTPUT_SCRIPT_PATH.relative_to(ROOT_DIR)}'
+        f'{OUTPUT_SCRIPT_PATH.relative_to(ROOT_DIR)}, '
+        f'{OUTPUT_NOJEKYLL_PATH.relative_to(ROOT_DIR)}'
     )
 
 
 if __name__ == '__main__':
     main()
+
 
