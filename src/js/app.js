@@ -1,6 +1,6 @@
 const DATA_PATHS = {
-	types: "/assets/types.json",
-	matchups: "/assets/type-matchup.csv"
+	types: "assets/types.json",
+	matchups: "assets/type-matchup.csv"
 };
 
 const CELL_CONFIG = {
