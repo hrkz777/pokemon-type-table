@@ -159,6 +159,11 @@ table {
 	min-width: var(--type-column-width);
 }
 
+.column-type-header {
+	left: 0;
+	z-index: 3;
+}
+
 .column-matchup-header,
 .column-matchup-cell {
 	width: var(--matchup-column-width);
