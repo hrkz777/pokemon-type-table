@@ -1,0 +1,113 @@
+.type-normal {
+	--type-bg: #AEAEAE;
+	--type-fg: #FFFDFA;
+	--type-outline: #7D7D7D;
+}
+
+.type-fire {
+	--type-bg: #FFA766;
+	--type-fg: #FFFDFA;
+	--type-outline: #B87849;
+}
+
+.type-water {
+	--type-bg: #64C5F7;
+	--type-fg: #FFFDFA;
+	--type-outline: #488EB2;
+}
+
+.type-electric {
+	--type-bg: #E7D400;
+	--type-fg: #FFFDFA;
+	--type-outline: #A69900;
+}
+
+.type-grass {
+	--type-bg: #9AC30E;
+	--type-fg: #FFFDFA;
+	--type-outline: #6F8C0A;
+}
+
+.type-ice {
+	--type-bg: #60E9F5;
+	--type-fg: #FFFDFA;
+	--type-outline: #45A8B0;
+}
+
+.type-fighting {
+	--type-bg: #EE6969;
+	--type-fg: #FFFDFA;
+	--type-outline: #AB4C4C;
+}
+
+.type-poison {
+	--type-bg: #AB7ACA;
+	--type-fg: #FFFDFA;
+	--type-outline: #7B5891;
+}
+
+.type-ground {
+	--type-bg: #C8A841;
+	--type-fg: #FFFDFA;
+	--type-outline: #90792F;
+}
+
+.type-flying {
+	--type-bg: #64A7F1;
+	--type-fg: #FFFDFA;
+	--type-outline: #4878AE;
+}
+
+.type-psychic {
+	--type-bg: #EB7FF4;
+	--type-fg: #FFFDFA;
+	--type-outline: #A95BB0;
+}
+
+.type-bug {
+	--type-bg: #51CB5A;
+	--type-fg: #FFFDFA;
+	--type-outline: #3A9241;
+}
+
+.type-rock {
+	--type-bg: #FAC727;
+	--type-fg: #FFFDFA;
+	--type-outline: #B48F1C;
+}
+
+.type-ghost {
+	--type-bg: #756EB4;
+	--type-fg: #FFFDFA;
+	--type-outline: #544F82;
+}
+
+.type-dragon {
+	--type-bg: #FF8859;
+	--type-fg: #FFFDFA;
+	--type-outline: #B86240;
+}
+
+.type-dark {
+	--type-bg: #6881D4;
+	--type-fg: #FFFDFA;
+	--type-outline: #4B5D99;
+}
+
+.type-steel {
+	--type-bg: #818AA4;
+	--type-fg: #FFFDFA;
+	--type-outline: #5D6376;
+}
+
+.type-fairy {
+	--type-bg: #FC7799;
+	--type-fg: #FFFDFA;
+	--type-outline: #B5566E;
+}
+
+.type-unknown {
+	--type-bg: #DDD4C8;
+	--type-fg: #221912;
+	--type-outline: rgba(34, 25, 18, 0.18);
+}
