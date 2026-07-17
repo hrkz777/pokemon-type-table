@@ -1,50 +1,54 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
 
 :root {
-	--md-sys-color-background: #eef5ff;
-	--md-sys-color-surface: #fffdf7;
+	--md-sys-color-background: #edf1f4;
+	--md-sys-color-surface: #ffffff;
 	--md-sys-color-surface-bright: #ffffff;
-	--md-sys-color-surface-container-low: #fff4c8;
-	--md-sys-color-surface-container: #eef6ff;
-	--md-sys-color-surface-container-high: #e0edf9;
-	--md-sys-color-surface-container-highest: #d6e4f2;
-	--md-sys-color-primary: #2a75bb;
+	--md-sys-color-surface-container-low: #f5f7f9;
+	--md-sys-color-surface-container: #eef2f5;
+	--md-sys-color-surface-container-high: #e6ebf0;
+	--md-sys-color-surface-container-highest: #dbe2e9;
+	--md-sys-color-primary: #1f2630;
 	--md-sys-color-on-primary: #ffffff;
-	--md-sys-color-primary-container: #d9ecff;
-	--md-sys-color-on-primary-container: #11355c;
-	--md-sys-color-secondary: #ffcb05;
-	--md-sys-color-secondary-container: #ffe68a;
-	--md-sys-color-on-secondary-container: #5a4200;
-	--md-sys-color-outline: #88a0bd;
-	--md-sys-color-outline-variant: #c4d3e4;
-	--md-sys-color-on-surface: #1b2a3a;
-	--md-sys-color-on-surface-variant: #4b5f75;
-	--md-sys-color-surface-tint: #2a75bb;
-	--pokemon-red: #ef4056;
-	--pokemon-red-dark: #d93449;
-	--pokemon-axis: #3b3b3b;
-	--pokemon-grid: #d8dde6;
+	--md-sys-color-primary-container: #1f2630;
+	--md-sys-color-on-primary-container: #ffffff;
+	--md-sys-color-secondary: #19c6da;
+	--md-sys-color-secondary-container: #daf6fb;
+	--md-sys-color-on-secondary-container: #10343d;
+	--md-sys-color-outline: #cad3dc;
+	--md-sys-color-outline-variant: #d9e0e7;
+	--md-sys-color-on-surface: #1f2630;
+	--md-sys-color-on-surface-variant: #65707c;
+	--md-sys-color-surface-tint: #19c6da;
+	--galar-cyan: #19c6da;
+	--galar-cyan-soft: #daf6fb;
+	--galar-red: #ff5f74;
+	--galar-red-dark: #de4d62;
+	--galar-yellow: #ffcc47;
+	--galar-ink: #1f2630;
+	--galar-ink-soft: #3c4551;
+	--galar-grid: #d7dee5;
 
-	--bg-card: #fffdf7;
-	--bg-tab-hover: #edf5ff;
-	--bg-tab-active: var(--pokemon-red);
+	--bg-card: #ffffff;
+	--bg-tab-hover: #eef3f7;
+	--bg-tab-active: var(--galar-ink);
 	--bg-tab-deactive: #ffffff;
 	--bg-table-wrap: var(--md-sys-color-surface-bright);
-	--bg-table-header-top: var(--pokemon-red);
-	--bg-table-header-side: #fff2b7;
+	--bg-table-header-top: var(--galar-ink);
+	--bg-table-header-side: var(--galar-ink-soft);
 	--text-table-header: var(--md-sys-color-on-primary);
 	--type-column-width: 156px;
 	--matchup-column-width: calc((100% - var(--type-column-width)) / 3);
 
-	--card-border: rgba(42, 117, 187, 0.26);
-	--focus-ring: rgba(42, 117, 187, 0.24);
-	--toggle-selected-outline: #ef5350;
+	--card-border: rgba(31, 38, 48, 0.12);
+	--focus-ring: rgba(25, 198, 218, 0.28);
+	--toggle-selected-outline: var(--galar-cyan);
 	--text-main: var(--md-sys-color-on-surface);
 	--text-sub: var(--md-sys-color-on-surface-variant);
-	--shadow-1: 0 1px 2px rgba(27, 42, 58, 0.05);
-	--shadow-2: 0 6px 18px rgba(27, 42, 58, 0.06);
-	--shadow-3: 0 12px 28px rgba(27, 42, 58, 0.07);
-	--shadow: var(--shadow-2);
+	--shadow-1: 0 1px 2px rgba(31, 38, 48, 0.04);
+	--shadow-2: 0 6px 20px rgba(31, 38, 48, 0.06);
+	--shadow-3: 0 12px 28px rgba(31, 38, 48, 0.08);
+	--shadow: var(--shadow-1);
 }
 
 * {
@@ -61,7 +65,7 @@ body {
 	margin: 0;
 	min-height: 100vh;
 	color: var(--text-main);
-	background: #f6f8fb;
+	background: var(--md-sys-color-background);
 }
 
 #app {
@@ -71,40 +75,58 @@ body {
 .page {
 	width: min(100% - 32px, 1280px);
 	margin: 0 auto;
-	padding: 24px 0 48px;
+	padding: 20px 0 40px;
 }
 
 .hero {
 	position: relative;
 	margin-bottom: 16px;
-	padding: 18px 22px;
-	border: 1px solid rgba(217, 52, 73, 0.2);
-	border-radius: 14px 14px 0 0;
-	background: var(--pokemon-red);
-	box-shadow: none;
+	padding: 20px 24px 20px 36px;
+	border: 2px solid var(--galar-ink);
+	border-radius: 18px;
+	background: #ffffff;
+	box-shadow: var(--shadow-1);
+	overflow: hidden;
 }
 
 .hero::before {
-	display: none;
+	content: "";
+	position: absolute;
+	inset: 0 auto 0 0;
+	width: 12px;
+	background: var(--galar-cyan);
 }
 
 .hero::after {
-	display: none;
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 84px;
+	height: 84px;
+	background: var(--galar-red);
+	clip-path: polygon(100% 0, 0 0, 100% 100%);
 }
 
 h1 {
 	position: relative;
 	margin: 0;
-	font-size: clamp(1.6rem, 3vw, 2.2rem);
+	display: inline-flex;
+	align-items: center;
+	padding: 8px 18px;
+	border-radius: 999px;
+	background: var(--galar-ink);
+	font-size: clamp(1.55rem, 3vw, 2.1rem);
 	line-height: 1.2;
-	letter-spacing: -0.01em;
+	letter-spacing: 0;
 	color: #ffffff;
+	z-index: 1;
 }
 
 .shell {
 	background: #ffffff;
-	border: 1px solid var(--pokemon-grid);
-	border-radius: 0 0 14px 14px;
+	border: 1px solid var(--galar-grid);
+	border-radius: 18px;
 	box-shadow: var(--shadow-1);
 	overflow: hidden;
 }
@@ -112,10 +134,10 @@ h1 {
 .tab-bar {
 	display: flex;
 	gap: 8px;
-	padding: 12px 14px;
+	padding: 14px 16px 12px;
 	flex-wrap: wrap;
-	border-bottom: 1px solid var(--pokemon-grid);
-	background: #f7f8fa;
+	border-bottom: 1px solid var(--galar-grid);
+	background: var(--md-sys-color-surface-container);
 }
 
 .tab-button {
@@ -124,8 +146,8 @@ h1 {
 	align-items: center;
 	justify-content: center;
 	min-height: 44px;
-	border: 1px solid var(--pokemon-grid);
-	border-radius: 10px;
+	border: 2px solid var(--galar-grid);
+	border-radius: 999px;
 	padding: 10px 16px;
 	background: var(--bg-tab-deactive);
 	color: var(--text-sub);
@@ -141,14 +163,15 @@ h1 {
 
 .tab-button:hover {
 	background: var(--bg-tab-hover);
-	color: var(--md-sys-color-primary);
+	border-color: var(--galar-cyan);
+	color: var(--galar-ink);
 }
 
 .tab-button[aria-selected="true"] {
 	background: var(--bg-tab-active);
-	border-color: var(--pokemon-red-dark);
+	border-color: var(--galar-ink);
 	color: #ffffff;
-	box-shadow: none;
+	box-shadow: 0 0 0 3px rgba(25, 198, 218, 0.14);
 }
 
 .tab-button:focus-visible,
@@ -175,14 +198,30 @@ h1 {
 	padding: 4px 2px 16px;
 	margin-bottom: 16px;
 	flex-wrap: wrap;
-	border-bottom: 1px solid var(--pokemon-grid);
+	border-bottom: 1px solid var(--galar-grid);
 }
 
 .panel-header h2 {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
 	margin: 0;
-	font-size: clamp(1.2rem, 2vw, 1.5rem);
+	padding: 8px 16px;
+	border-radius: 999px;
+	background: var(--galar-ink);
+	color: #ffffff;
+	font-size: clamp(1.05rem, 2vw, 1.35rem);
 	font-weight: 700;
-	letter-spacing: -0.01em;
+	letter-spacing: 0;
+}
+
+.panel-header h2::before {
+	content: "";
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background: var(--galar-cyan);
+	flex: 0 0 auto;
 }
 
 .panel-lead {
@@ -194,8 +233,8 @@ h1 {
 }
 
 .table-wrap {
-	border: 1px solid var(--pokemon-grid);
-	border-radius: 8px;
+	border: 2px solid var(--galar-ink);
+	border-radius: 14px;
 	background: var(--bg-table-wrap);
 	overflow: auto;
 }
@@ -210,8 +249,8 @@ h1 {
 .type-filter-controls,
 .type-filter-summary,
 .matchup-card {
-	border: 1px solid var(--pokemon-grid);
-	border-radius: 8px;
+	border: 2px solid var(--galar-grid);
+	border-radius: 14px;
 	background: #ffffff;
 }
 
@@ -268,11 +307,11 @@ h1 {
 }
 
 .type-toggle-button:hover:not(.is-muted) {
-	filter: brightness(0.99) saturate(1.02);
+	filter: brightness(1.01) saturate(1.03);
 }
 
 .type-toggle-button.is-selected {
-	box-shadow: 0 0 0 3px var(--toggle-selected-outline);
+	box-shadow: 0 0 0 4px var(--toggle-selected-outline);
 }
 
 .type-toggle-button.is-muted {
@@ -339,31 +378,37 @@ h1 {
 
 .matchup-card-danger,
 .matchup-card-extremely-effective {
-	background: #ffe3df;
+	background: #fff7f8;
+	border-top: 6px solid var(--galar-red);
 }
 
 .matchup-card-danger-soft,
 .matchup-card-super-effective {
-	background: #fff0de;
+	background: #fff8f0;
+	border-top: 6px solid #ff9a4a;
 }
 
 .matchup-card-neutral {
-	background: #fff4c8;
+	background: #fffbef;
+	border-top: 6px solid var(--galar-yellow);
 }
 
 .matchup-card-good,
 .matchup-card-not-very-effective {
-	background: #e6f6ea;
+	background: #f3fff8;
+	border-top: 6px solid #35c788;
 }
 
 .matchup-card-good-strong,
 .matchup-card-mostly-ineffective {
-	background: #d9f0df;
+	background: #eefcf8;
+	border-top: 6px solid #1cb67b;
 }
 
 .matchup-card-immune,
 .matchup-card-doesnt-affect {
-	background: #e2edff;
+	background: #f2fdff;
+	border-top: 6px solid var(--galar-cyan);
 }
 
 table {
@@ -383,7 +428,7 @@ table {
 .column-type-header {
 	left: 0;
 	z-index: 3;
-	box-shadow: 1px 0 0 rgba(42, 117, 187, 0.12);
+	box-shadow: 1px 0 0 rgba(31, 38, 48, 0.1);
 }
 
 .column-matchup-header,
@@ -395,8 +440,8 @@ thead th {
 	position: sticky;
 	top: 0;
 	z-index: 2;
-	padding: 16px 14px;
-	border-bottom: 1px solid var(--pokemon-grid);
+	padding: 15px 14px;
+	border-bottom: 2px solid var(--galar-cyan);
 	background: var(--bg-table-header-top);
 	color: var(--text-table-header);
 	font-size: 0.95rem;
@@ -408,7 +453,7 @@ thead th {
 tbody th,
 tbody td {
 	padding: 14px 12px;
-	border-bottom: 1px solid var(--pokemon-grid);
+	border-bottom: 1px solid var(--galar-grid);
 	vertical-align: middle;
 	background: #ffffff;
 }
@@ -419,19 +464,19 @@ tbody tr:last-child td {
 }
 
 tbody tr:nth-child(even) td {
-	background: #fafbfd;
+	background: #f7f9fb;
 }
 
 tbody tr:hover td,
 tbody tr:hover .row-heading {
-	background: #f4f8fd;
+	background: #eef7fb;
 }
 
 .row-heading {
 	position: sticky;
 	left: 0;
 	z-index: 1;
-	background: var(--pokemon-axis);
+	background: var(--galar-ink-soft);
 	color: #ffffff;
 	white-space: nowrap;
 	box-shadow: 1px 0 0 rgba(0, 0, 0, 0.08);
@@ -451,7 +496,7 @@ tbody tr:hover .row-heading {
 	padding: 8px 14px;
 	font-size: 0.94rem;
 	width: fit-content;
-	border-radius: 10px;
+	border-radius: 12px;
 }
 
 .type-pill {
@@ -463,7 +508,7 @@ tbody tr:hover .row-heading {
 .type-toggle-grid .type-toggle-button.type-badge {
 	width: 100%;
 	min-height: 52px;
-	border-radius: 18px;
+	border-radius: 14px;
 }
 
 .type-toggle-grid .type-toggle-button.type-badge.is-muted {
@@ -482,7 +527,7 @@ tbody tr:hover .row-heading {
 	min-height: 32px;
 	padding: 6px 12px;
 	border-radius: 999px;
-	background: #f0f2f5;
+	background: var(--md-sys-color-surface-container);
 	color: var(--text-sub);
 	font-size: 0.88rem;
 	font-weight: 500;
@@ -515,11 +560,11 @@ tbody tr:hover .row-heading {
 
 	.hero,
 	.shell {
-		border-radius: 12px;
+		border-radius: 16px;
 	}
 
 	.hero {
-		padding: 16px 18px;
+		padding: 18px 18px 18px 28px;
 	}
 
 	.tab-bar {
