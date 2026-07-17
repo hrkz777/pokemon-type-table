@@ -26,9 +26,9 @@ OUTPUT_NOJEKYLL_PATH = DOCS_DIR / ".nojekyll"
 HTML_INDENT = "\t"
 
 CELL_CONFIG = (
-	("weaknesses", "こうかばつぐん"),
-	("resistances", "いまひとつ"),
-	("immunities", "こうかがない"),
+	("super_effective", "こうかばつぐん"),
+	("not_very_effective", "いまひとつ"),
+	("doesnt_affect", "こうかがない"),
 )
 
 PANELS = (
@@ -136,25 +136,25 @@ def summarize_attack(records: list[dict[str, object]], order: list[str]) -> list
 
 	for attacker in order:
 		matchups = lookup.get(attacker, {})
-		weaknesses: list[str] = []
-		resistances: list[str] = []
-		immunities: list[str] = []
+		super_effective: list[str] = []
+		not_very_effective: list[str] = []
+		doesnt_affect: list[str] = []
 
 		for defender in order:
 			multiplier = matchups.get(defender, 1) if isinstance(matchups, dict) else 1
 			if multiplier == 2:
-				weaknesses.append(defender)
+				super_effective.append(defender)
 			elif multiplier == 0.5:
-				resistances.append(defender)
+				not_very_effective.append(defender)
 			elif multiplier == 0:
-				immunities.append(defender)
+				doesnt_affect.append(defender)
 
 		summaries.append(
 			{
 				"name": attacker,
-				"weaknesses": weaknesses,
-				"resistances": resistances,
-				"immunities": immunities,
+				"super_effective": super_effective,
+				"not_very_effective": not_very_effective,
+				"doesnt_affect": doesnt_affect,
 			}
 		)
 
@@ -166,26 +166,26 @@ def summarize_defense(records: list[dict[str, object]], order: list[str]) -> lis
 	summaries: list[dict[str, object]] = []
 
 	for defender in order:
-		weaknesses: list[str] = []
-		resistances: list[str] = []
-		immunities: list[str] = []
+		super_effective: list[str] = []
+		not_very_effective: list[str] = []
+		doesnt_affect: list[str] = []
 
 		for attacker in order:
 			matchups = record_lookup.get(attacker, {})
 			multiplier = matchups.get(defender, 1) if isinstance(matchups, dict) else 1
 			if multiplier == 2:
-				weaknesses.append(attacker)
+				super_effective.append(attacker)
 			elif multiplier == 0.5:
-				resistances.append(attacker)
+				not_very_effective.append(attacker)
 			elif multiplier == 0:
-				immunities.append(attacker)
+				doesnt_affect.append(attacker)
 
 		summaries.append(
 			{
 				"name": defender,
-				"weaknesses": weaknesses,
-				"resistances": resistances,
-				"immunities": immunities,
+				"super_effective": super_effective,
+				"not_very_effective": not_very_effective,
+				"doesnt_affect": doesnt_affect,
 			}
 		)
 
@@ -223,9 +223,9 @@ def render_table(summaries: list[dict[str, object]], type_map: dict[str, dict[st
 		html_line(level + 3, '<th class="column-type-header" scope="col">タイプ</th>'),
 	]
 
-	for _, label in CELL_CONFIG:
+	for type_effectiveness, label in CELL_CONFIG:
 		lines.append(
-			html_line(level + 3, f'<th class="column-matchup-header" scope="col">{escape(label)}</th>')
+			html_line(level + 3, f'<th class="column-matchup-header {type_effectiveness}" scope="col">{escape(label)}</th>')
 		)
 
 	lines.extend(
