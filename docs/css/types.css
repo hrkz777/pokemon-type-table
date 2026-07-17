@@ -33,9 +33,9 @@
 }
 
 .type-electric {
-	--type-bg: #E7D400;
+	--type-bg: #F0DF1D;
 	--type-fg: #FFFDFA;
-	--type-outline: #A69900;
+	--type-outline: #A58F00;
 }
 
 .type-grass {
@@ -63,9 +63,9 @@
 }
 
 .type-ground {
-	--type-bg: #C8A841;
+	--type-bg: #B88C5C;
 	--type-fg: #FFFDFA;
-	--type-outline: #90792F;
+	--type-outline: #825F3D;
 }
 
 .type-flying {
@@ -87,27 +87,27 @@
 }
 
 .type-rock {
-	--type-bg: #FAC727;
+	--type-bg: #DFB255;
 	--type-fg: #FFFDFA;
-	--type-outline: #B48F1C;
+	--type-outline: #9A7530;
 }
 
 .type-ghost {
-	--type-bg: #756EB4;
+	--type-bg: #8673AE;
 	--type-fg: #FFFDFA;
-	--type-outline: #544F82;
+	--type-outline: #5B527B;
 }
 
 .type-dragon {
-	--type-bg: #FF8859;
+	--type-bg: #7A69E8;
 	--type-fg: #FFFDFA;
-	--type-outline: #B86240;
+	--type-outline: #5649A6;
 }
 
 .type-dark {
-	--type-bg: #6881D4;
+	--type-bg: #5B6279;
 	--type-fg: #FFFDFA;
-	--type-outline: #4B5D99;
+	--type-outline: #3F4558;
 }
 
 .type-steel {

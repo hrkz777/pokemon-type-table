@@ -20,6 +20,12 @@
 	--md-sys-color-on-surface: #1f2630;
 	--md-sys-color-on-surface-variant: #65707c;
 	--md-sys-color-surface-tint: #19c6da;
+	--pokeball-red: #ef4056;
+	--pokeball-red-soft: #ffe7eb;
+	--pokeball-red-dark: #d93449;
+	--pokeball-ink: #1f2630;
+	--pokeball-ink-soft: #424955;
+	--pokeball-grid: #d7dee5;
 	--galar-cyan: #19c6da;
 	--galar-cyan-soft: #daf6fb;
 	--galar-red: #ff5f74;
@@ -34,7 +40,7 @@
 	--bg-tab-active: var(--galar-ink);
 	--bg-tab-deactive: #ffffff;
 	--bg-table-wrap: var(--md-sys-color-surface-bright);
-	--bg-table-header-top: var(--galar-ink);
+	--bg-table-header-top: var(--pokeball-red);
 	--bg-table-header-side: var(--galar-ink-soft);
 	--text-table-header: var(--md-sys-color-on-primary);
 	--type-column-width: 156px;
@@ -111,15 +117,10 @@ body {
 h1 {
 	position: relative;
 	margin: 0;
-	display: inline-flex;
-	align-items: center;
-	padding: 8px 18px;
-	border-radius: 999px;
-	background: var(--galar-ink);
 	font-size: clamp(1.55rem, 3vw, 2.1rem);
 	line-height: 1.2;
 	letter-spacing: 0;
-	color: #ffffff;
+	color: var(--galar-ink);
 	z-index: 1;
 }
 
@@ -157,14 +158,16 @@ h1 {
 	letter-spacing: 0.01em;
 	transition:
 		background-color 160ms ease,
+		border-color 160ms ease,
 		color 160ms ease,
 		box-shadow 160ms ease;
 }
 
-.tab-button:hover {
-	background: var(--bg-tab-hover);
+.tab-button:hover:not([aria-selected="true"]) {
+	background: var(--galar-cyan-soft);
 	border-color: var(--galar-cyan);
 	color: var(--galar-ink);
+	box-shadow: 0 0 0 3px rgba(25, 198, 218, 0.12);
 }
 
 .tab-button[aria-selected="true"] {
@@ -206,13 +209,10 @@ h1 {
 	align-items: center;
 	gap: 10px;
 	margin: 0;
-	padding: 8px 16px;
-	border-radius: 999px;
-	background: var(--galar-ink);
-	color: #ffffff;
 	font-size: clamp(1.05rem, 2vw, 1.35rem);
 	font-weight: 700;
 	letter-spacing: 0;
+	color: var(--galar-ink);
 }
 
 .panel-header h2::before {
@@ -233,7 +233,7 @@ h1 {
 }
 
 .table-wrap {
-	border: 2px solid var(--galar-ink);
+	border: 1px solid var(--galar-grid);
 	border-radius: 14px;
 	background: var(--bg-table-wrap);
 	overflow: auto;
@@ -277,20 +277,24 @@ h1 {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	font-weight: 700;
+	font-weight: 800;
+	letter-spacing: 0.01em;
 	white-space: nowrap;
 	background: var(--type-bg, #ddd4c8);
 	color: var(--type-fg, #fffdfa);
-	border: 1px solid var(--type-outline, rgba(34, 25, 18, 0.18));
+	border: 2px solid var(--type-outline, rgba(34, 25, 18, 0.18));
 	text-shadow:
-		1px 0 var(--type-outline, rgba(34, 25, 18, 0.18)),
-		-1px 0 var(--type-outline, rgba(34, 25, 18, 0.18)),
-		0 1px var(--type-outline, rgba(34, 25, 18, 0.18)),
-		0 -1px var(--type-outline, rgba(34, 25, 18, 0.18)),
-		1px 1px var(--type-outline, rgba(34, 25, 18, 0.18)),
-		-1px -1px var(--type-outline, rgba(34, 25, 18, 0.18)),
-		1px -1px var(--type-outline, rgba(34, 25, 18, 0.18)),
-		-1px 1px var(--type-outline, rgba(34, 25, 18, 0.18));
+		1.25px 0 var(--type-outline, rgba(34, 25, 18, 0.18)),
+		-1.25px 0 var(--type-outline, rgba(34, 25, 18, 0.18)),
+		0 1.25px var(--type-outline, rgba(34, 25, 18, 0.18)),
+		0 -1.25px var(--type-outline, rgba(34, 25, 18, 0.18)),
+		1.25px 1.25px var(--type-outline, rgba(34, 25, 18, 0.18)),
+		-1.25px -1.25px var(--type-outline, rgba(34, 25, 18, 0.18)),
+		1.25px -1.25px var(--type-outline, rgba(34, 25, 18, 0.18)),
+		-1.25px 1.25px var(--type-outline, rgba(34, 25, 18, 0.18));
+	box-shadow:
+		0 0 0 1px rgba(255, 255, 255, 0.18),
+		0 1px 2px rgba(31, 38, 48, 0.12);
 }
 
 .type-toggle-button {
@@ -441,7 +445,7 @@ thead th {
 	top: 0;
 	z-index: 2;
 	padding: 15px 14px;
-	border-bottom: 2px solid var(--galar-cyan);
+	border-bottom: 2px solid var(--pokeball-red-dark);
 	background: var(--bg-table-header-top);
 	color: var(--text-table-header);
 	font-size: 0.95rem;
