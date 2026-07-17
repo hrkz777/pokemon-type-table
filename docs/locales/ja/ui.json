@@ -1,0 +1,29 @@
+{
+	"pageTitle": "ポケモンタイプ相性表",
+	"heroTitle": "タイプ相性表",
+	"tabAriaLabel": "タイプ相性ビュー",
+	"tabs": {
+		"attack": "攻撃側",
+		"defense": "防御側",
+		"custom": "防御側のタイプを指定"
+	},
+	"titles": {
+		"attack": "攻撃相性一覧",
+		"defense": "防御相性一覧",
+		"custom": "指定したタイプの相性を取得"
+	},
+	"tableTypeHeader": "タイプ",
+	"loadingTitle": "読み込み中",
+	"loadingMessage": "ファイルを読み込み中です",
+	"errorTitle": "エラーが発生しました",
+	"errorMessage": "ファイルの読み込みに失敗しました",
+	"customLead": "タイプを1つか2つ選ぶと、受ける技の相性をまとめて表示します",
+	"typeFilterLabel": "タイプを選択",
+	"typeToggleGroupLabel": "タイプを最大2つまで選択",
+	"customHint": "2つまで選択できます",
+	"emptyGroup": "なし",
+	"emptySelected": "未選択",
+	"statusPrompt": "タイプを1つ以上選択してください",
+	"status": "{0} の防御相性です",
+	"count": "{0}タイプ"
+}

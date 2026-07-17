@@ -1,3 +1,19 @@
+/*
+.super_effective
+{
+
+}
+
+.not_very_effective
+{
+
+}
+*/
+.doesnt_affect
+{
+	width: 300px;
+}
+
 .type-normal {
 	--type-bg: #AEAEAE;
 	--type-fg: #FFFDFA;

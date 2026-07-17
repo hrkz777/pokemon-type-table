@@ -1,0 +1,33 @@
+{
+	"extremely_effective": {
+		"DamageRate": 4.0,
+		"RateKey": "4",
+		"CardClass": "matchup-card matchup-card-extremely-effective"
+	},
+	"super_effective": {
+		"DamageRate": 2.0,
+		"RateKey": "2",
+		"CardClass": "matchup-card matchup-card-super-effective"
+	},
+	"neutral": {
+		"Key": "neutral",
+		"DamageRate": 1.0,
+		"RateKey": "1",
+		"CardClass": "matchup-card matchup-card-neutral"
+	},
+	"not_very_effective": {
+		"DamageRate": 0.5,
+		"RateKey": "0.5",
+		"CardClass": "matchup-card matchup-card-not-very-effective"
+	},
+	"mostly_ineffective": {
+		"DamageRate": 0.25,
+		"RateKey": "0.25",
+		"CardClass": "matchup-card matchup-card-mostly-ineffective"
+	},
+	"doesnt_affect": {
+		"DamageRate": 0.0,
+		"RateKey": "0",
+		"CardClass": "matchup-card matchup-card-doesnt-affect"
+	}
+}

@@ -1,0 +1,56 @@
+{
+	"normal": {
+		"name": "ノーマル"
+	},
+	"fire": {
+		"name": "ほのお"
+	},
+	"water": {
+		"name": "みず"
+	},
+	"grass": {
+		"name": "くさ"
+	},
+	"electric": {
+		"name": "でんき"
+	},
+	"ice": {
+		"name": "こおり"
+	},
+	"fighting": {
+		"name": "かくとう"
+	},
+	"poison": {
+		"name": "どく"
+	},
+	"ground": {
+		"name": "じめん"
+	},
+	"flying": {
+		"name": "ひこう"
+	},
+	"psychic": {
+		"name": "エスパー"
+	},
+	"bug": {
+		"name": "むし"
+	},
+	"rock": {
+		"name": "いわ"
+	},
+	"ghost": {
+		"name": "ゴースト"
+	},
+	"dragon": {
+		"name": "ドラゴン"
+	},
+	"dark": {
+		"name": "あく"
+	},
+	"steel": {
+		"name": "はがね"
+	},
+	"fairy": {
+		"name": "フェアリー"
+	}
+}
