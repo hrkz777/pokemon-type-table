@@ -1,148 +1,116 @@
 {
-	"Types": [
-		{
-			"Key": "normal",
-			"Name": "ノーマル",
-			"Color": "#AEAEAE",
-			"FontColor": "#FFFDFA",
-			"OutlineColor": "#7D7D7D",
-			"Style": "type-normal"
-		},
-		{
-			"Key": "fire",
-			"Name": "ほのお",
-			"Color": "#FFA766",
-			"FontColor": "#FFFDFA",
-			"OutlineColor": "#B87849",
-			"Style": "type-fire"
-		},
-		{
-			"Key": "water",
-			"Name": "みず",
-			"Color": "#64C5F7",
-			"FontColor": "#FFFDFA",
-			"OutlineColor": "#488EB2",
-			"Style": "type-water"
-		},
-		{
-			"Key": "grass",
-			"Name": "くさ",
-			"Color": "#9AC30E",
-			"FontColor": "#FFFDFA",
-			"OutlineColor": "#6F8C0A",
-			"Style": "type-grass"
-		},
-		{
-			"Key": "electric",
-			"Name": "でんき",
-			"Color": "#E7D400",
-			"FontColor": "#FFFDFA",
-			"OutlineColor": "#A69900",
-			"Style": "type-electric"
-		},
-		{
-			"Key": "ice",
-			"Name": "こおり",
-			"Color": "#60E9F5",
-			"FontColor": "#FFFDFA",
-			"OutlineColor": "#45A8B0",
-			"Style": "type-ice"
-		},
-		{
-			"Key": "fighting",
-			"Name": "かくとう",
-			"Color": "#EE6969",
-			"FontColor": "#FFFDFA",
-			"OutlineColor": "#AB4C4C",
-			"Style": "type-fighting"
-		},
-		{
-			"Key": "poison",
-			"Name": "どく",
-			"Color": "#AB7ACA",
-			"FontColor": "#FFFDFA",
-			"OutlineColor": "#7B5891",
-			"Style": "type-poison"
-		},
-		{
-			"Key": "ground",
-			"Name": "じめん",
-			"Color": "#C8A841",
-			"FontColor": "#FFFDFA",
-			"OutlineColor": "#90792F",
-			"Style": "type-ground"
-		},
-		{
-			"Key": "flying",
-			"Name": "ひこう",
-			"Color": "#64A7F1",
-			"FontColor": "#FFFDFA",
-			"OutlineColor": "#4878AE",
-			"Style": "type-flying"
-		},
-		{
-			"Key": "psychic",
-			"Name": "エスパー",
-			"Color": "#EB7FF4",
-			"FontColor": "#FFFDFA",
-			"OutlineColor": "#A95BB0",
-			"Style": "type-phychic"
-		},
-		{
-			"Key": "bug",
-			"Name": "むし",
-			"Color": "#51CB5A",
-			"FontColor": "#FFFDFA",
-			"OutlineColor": "#3A9241",
-			"Style": "type-bug"
-		},
-		{
-			"Key": "rock",
-			"Name": "いわ",
-			"Color": "#FAC727",
-			"FontColor": "#FFFDFA",
-			"OutlineColor": "#B48F1C",
-			"Style": "type-rock"
-		},
-		{
-			"Key": "ghost",
-			"Name": "ゴースト",
-			"Color": "#756EB4",
-			"FontColor": "#FFFDFA",
-			"OutlineColor": "#544F82",
-			"Style": "type-ghost"
-		},
-		{
-			"Key": "dragon",
-			"Name": "ドラゴン",
-			"Color": "#FF8859",
-			"FontColor": "#FFFDFA",
-			"OutlineColor": "#B86240",
-			"Style": "type-dragon"
-		},
-		{
-			"Key": "dark",
-			"Name": "あく",
-			"Color": "#6881D4",
-			"FontColor": "#FFFDFA",
-			"OutlineColor": "#4B5D99",
-			"Style": "type-dark"
-		},
-		{
-			"Key": "steel",
-			"Name": "はがね",
-			"Color": "#818AA4",
-			"FontColor": "#FFFDFA",
-			"OutlineColor": "#5D6376",
-			"Style": "type-steel"
-		},
-		{
-			"Key": "fairy",
-			"Name": "フェアリー",
-			"Color": "#FC7799",
-			"FontColor": "#FFFDFA",
-			"OutlineColor": "#B5566E",
-			"Style": "type-fairy"
-		}
-	]
+	"normal": {
+		"color": "#AEAEAE",
+		"font_color": "#FFFDFA",
+		"outline_color": "#7D7D7D",
+		"style": "type-normal"
+	},
+	"fire": {
+		"Key": "fire",
+		"color": "#FFA766",
+		"font_color": "#FFFDFA",
+		"outline_color": "#B87849",
+		"style": "type-fire"
+	},
+	"water": {
+		"Key": "water",
+		"color": "#64C5F7",
+		"font_color": "#FFFDFA",
+		"outline_color": "#488EB2",
+		"style": "type-water"
+	},
+	"grass": {
+		"color": "#9AC30E",
+		"font_color": "#FFFDFA",
+		"outline_color": "#6F8C0A",
+		"style": "type-grass"
+	},
+	"electric": {
+		"color": "#E7D400",
+		"font_color": "#FFFDFA",
+		"outline_color": "#A69900",
+		"style": "type-electric"
+	},
+	"ice": {
+		"color": "#60E9F5",
+		"font_color": "#FFFDFA",
+		"outline_color": "#45A8B0",
+		"style": "type-ice"
+	},
+	"fighting": {
+		"color": "#EE6969",
+		"font_color": "#FFFDFA",
+		"outline_color": "#AB4C4C",
+		"style": "type-fighting"
+	},
+	"poison": {
+		"Key": "poison",
+		"color": "#AB7ACA",
+		"font_color": "#FFFDFA",
+		"outline_color": "#7B5891",
+		"style": "type-poison"
+	},
+	"ground": {
+		"color": "#C8A841",
+		"font_color": "#FFFDFA",
+		"outline_color": "#90792F",
+		"style": "type-ground"
+	},
+	"flying": {
+		"color": "#64A7F1",
+		"font_color": "#FFFDFA",
+		"outline_color": "#4878AE",
+		"style": "type-flying"
+	},
+	"psychic": {
+		"color": "#EB7FF4",
+		"font_color": "#FFFDFA",
+		"outline_color": "#A95BB0",
+		"style": "type-phychic"
+	},
+	"bug": {
+		"color": "#51CB5A",
+		"font_color": "#FFFDFA",
+		"outline_color": "#3A9241",
+		"style": "type-bug"
+	},
+	"rock": {
+		"Key": "rock",
+		"color": "#FAC727",
+		"font_color": "#FFFDFA",
+		"outline_color": "#B48F1C",
+		"style": "type-rock"
+	},
+	"ghost": {
+		"Key": "ghost",
+		"color": "#756EB4",
+		"font_color": "#FFFDFA",
+		"outline_color": "#544F82",
+		"style": "type-ghost"
+	},
+	"dragon": {
+		"Key": "dragon",
+		"color": "#FF8859",
+		"font_color": "#FFFDFA",
+		"outline_color": "#B86240",
+		"style": "type-dragon"
+	},
+	"dark": {
+		"color": "#6881D4",
+		"font_color": "#FFFDFA",
+		"outline_color": "#4B5D99",
+		"style": "type-dark"
+	},
+	"steel": {
+		"color": "#818AA4",
+		"font_color": "#FFFDFA",
+		"outline_color": "#5D6376",
+		"style": "type-steel"
+	},
+	"fairy": {
+		"color": "#FC7799",
+		"font_color": "#FFFDFA",
+		"outline_color": "#B5566E",
+		"style": "type-fairy"
+	}
 }

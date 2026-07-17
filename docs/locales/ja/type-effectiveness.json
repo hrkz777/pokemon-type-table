@@ -2,43 +2,31 @@
 	{
 		"key": "extremely-effective",
 		"label": "ちょうばつぐん",
-		"damage_rate": 4,
-		"damage_text": "4倍",
-		"card_class": "matchup-card matchup-card-extremely-effective"
+		"damage_text": "4倍"
 	},
 	{
 		"key": "super-effective",
 		"label": "ばつぐん",
-		"damage_rate": 2,
-		"damage_text": "2倍",
-		"card_class": "matchup-card matchup-card-super-effective"
+		"damage_text": "2倍"
 	},
 	{
 		"key": "neutral",
 		"label": "ふつう",
-		"damage_rate": 1,
-		"damage_text": "1.0倍",
-		"card_class": "matchup-card matchup-card-neutral"
+		"damage_text": "1.0倍"
 	},
 	{
 		"key": "not-very-effective",
 		"label": "いまひとつ",
-		"damage_rate": 0.5,
-		"damage_text": "0.5倍",
-		"card_class": "matchup-card matchup-card-not-very-effective"
+		"damage_text": "0.5倍"
 	},
 	{
 		"key": "mostly-ineffective",
 		"label": "かなりいまひとつ",
-		"damage_rate": 0.25,
-		"damage_text": "0.25倍",
-		"card_class": "matchup-card matchup-card-mostly-ineffective"
+		"damage_text": "0.25倍"
 	},
 	{
 		"key": "doesnt-affect",
-		"label": "無効",
-		"damage_rate": 0,
-		"damage_text": "無効",
-		"card_class": "matchup-card matchup-card-doesnt-affect"
+		"label": "こうかがない",
+		"damage_text": "無効"
 	}
 ]
