@@ -1,0 +1,52 @@
+{
+	"Effectiveness": [
+		{
+			"Key": "extremely-effective",
+			"Label": "ちょうばつぐん",
+			"DamageRate": 4.0,
+			"RateKey": "4",
+			"DamageText": "4倍",
+			"CardClass": "matchup-card matchup-card-extremely-effective"
+		},
+		{
+			"Key": "super-effective",
+			"Label": "ばつぐん",
+			"DamageRate": 2.0,
+			"RateKey": "2",
+			"DamageText": "2倍",
+			"CardClass": "matchup-card matchup-card-super-effective"
+		},
+		{
+			"Key": "neutral",
+			"Label": "ふつう",
+			"DamageRate": 1.0,
+			"RateKey": "1",
+			"DamageText": "1.0倍",
+			"CardClass": "matchup-card matchup-card-neutral"
+		},
+		{
+			"Key": "not-very-effective",
+			"Label": "いまひとつ",
+			"DamageRate": 0.5,
+			"RateKey": "0.5",
+			"DamageText": "0.5倍",
+			"CardClass": "matchup-card matchup-card-not-very-effective"
+		},
+		{
+			"Key": "mostly-ineffective",
+			"Label": "かなりいまひとつ",
+			"DamageRate": 0.25,
+			"RateKey": "0.25",
+			"DamageText": "0.25倍",
+			"CardClass": "matchup-card matchup-card-mostly-ineffective"
+		},
+		{
+			"Key": "doesnt-affect",
+			"Label": "無効",
+			"DamageRate": 0.0,
+			"RateKey": "0",
+			"DamageText": "無効",
+			"CardClass": "matchup-card matchup-card-doesnt-affect"
+		}
+	]
+}

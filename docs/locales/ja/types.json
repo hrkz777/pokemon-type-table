@@ -1,0 +1,128 @@
+{
+	"normal": {
+		"name": "ノーマル",
+		"color": "#AEAEAE",
+		"font_color": "#FFFDFA",
+		"outline_color": "#7D7D7D",
+		"style": "type-normal"
+	},
+	"fire": {
+		"name": "ほのお",
+		"color": "#FFA766",
+		"font_color": "#FFFDFA",
+		"outline_color": "#B87849",
+		"style": "type-fire"
+	},
+	"water": {
+		"name": "みず",
+		"color": "#64C5F7",
+		"font_color": "#FFFDFA",
+		"outline_color": "#488EB2",
+		"style": "type-water"
+	},
+	"grass": {
+		"name": "くさ",
+		"color": "#9AC30E",
+		"font_color": "#FFFDFA",
+		"outline_color": "#6F8C0A",
+		"style": "type-grass"
+	},
+	"electric": {
+		"name": "でんき",
+		"color": "#E7D400",
+		"font_color": "#FFFDFA",
+		"outline_color": "#A69900",
+		"style": "type-electric"
+	},
+	"ice": {
+		"name": "こおり",
+		"color": "#60E9F5",
+		"font_color": "#FFFDFA",
+		"outline_color": "#45A8B0",
+		"style": "type-ice"
+	},
+	"fighting": {
+		"name": "かくとう",
+		"color": "#EE6969",
+		"font_color": "#FFFDFA",
+		"outline_color": "#AB4C4C",
+		"style": "type-fighting"
+	},
+	"poison": {
+		"name": "どく",
+		"color": "#AB7ACA",
+		"font_color": "#FFFDFA",
+		"outline_color": "#7B5891",
+		"style": "type-poison"
+	},
+	"ground": {
+		"name": "じめん",
+		"color": "#C8A841",
+		"font_color": "#FFFDFA",
+		"outline_color": "#90792F",
+		"style": "type-ground"
+	},
+	"flying": {
+		"name": "ひこう",
+		"color": "#64A7F1",
+		"font_color": "#FFFDFA",
+		"outline_color": "#4878AE",
+		"style": "type-flying"
+	},
+	"psychic": {
+		"name": "エスパー",
+		"color": "#EB7FF4",
+		"font_color": "#FFFDFA",
+		"outline_color": "#A95BB0",
+		"style": "type-psychic"
+	},
+	"bug": {
+		"name": "むし",
+		"color": "#51CB5A",
+		"font_color": "#FFFDFA",
+		"outline_color": "#3A9241",
+		"style": "type-bug"
+	},
+	"rock": {
+		"name": "いわ",
+		"color": "#FAC727",
+		"font_color": "#FFFDFA",
+		"outline_color": "#B48F1C",
+		"style": "type-rock"
+	},
+	"ghost": {
+		"name": "ゴースト",
+		"color": "#756EB4",
+		"font_color": "#FFFDFA",
+		"outline_color": "#544F82",
+		"style": "type-ghost"
+	},
+	"dragon": {
+		"name": "ドラゴン",
+		"color": "#FF8859",
+		"font_color": "#FFFDFA",
+		"outline_color": "#B86240",
+		"style": "type-dragon"
+	},
+	"dark": {
+		"name": "あく",
+		"color": "#6881D4",
+		"font_color": "#FFFDFA",
+		"outline_color": "#4B5D99",
+		"style": "type-dark"
+	},
+	"steel": {
+		"name": "はがね",
+		"color": "#818AA4",
+		"font_color": "#FFFDFA",
+		"outline_color": "#5D6376",
+		"style": "type-steel"
+	},
+	"fairy": {
+		"name": "フェアリー",
+		"color": "#FC7799",
+		"font_color": "#FFFDFA",
+		"outline_color": "#B5566E",
+		"style": "type-fairy"
+	}
+}
