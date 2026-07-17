@@ -12,74 +12,6 @@
 		{ key: "doesnt_affect", rateKey: "0" },
 	]
 	const PANEL_IDS = ["attack", "defense", "custom"]
-	const UI_COPY = {
-		ja: {
-			pageTitle: "ポケモンタイプ相性表",
-			heroTitle: "タイプ相性表",
-			tabAriaLabel: "タイプ相性ビュー",
-			tabs: {
-				attack: "攻撃側",
-				defense: "防御側",
-				custom: "自分のポケモン",
-			},
-			titles: {
-				attack: "攻撃相性一覧",
-				defense: "防御相性一覧",
-				custom: "自分のポケモンの防御相性",
-			},
-			tableTypeHeader: "タイプ",
-			loadingTitle: "読み込み中",
-			loadingMessage: "ファイルを読み込み中です。",
-			errorTitle: "エラーが発生しました",
-			errorMessage: "ファイルの読み込みに失敗しました。",
-			customLead: "タイプを1つか2つ選ぶと、受ける技の相性をまとめて表示します。",
-			typeFilterLabel: "タイプを選択",
-			typeToggleGroupLabel: "タイプを最大2つまで選択",
-			customHint: "2つまで選択できます。2つ選ぶと、他の未選択タイプは半透明になります。",
-			emptyGroup: "なし",
-			emptySelected: "未選択",
-			statusPrompt: "タイプを1つ以上選ぶと、防御相性をここに表示します。",
-			status(selectedNames) {
-				return `${selectedNames.join(" / ")} の防御相性です。受ける技のタイプを倍率ごとにまとめています。`
-			},
-			count(value) {
-				return `${value}タイプ`
-			},
-		},
-		"en-US": {
-			pageTitle: "Pokemon Type Matchup Chart",
-			heroTitle: "Type Matchup Chart",
-			tabAriaLabel: "Type matchup views",
-			tabs: {
-				attack: "Attack",
-				defense: "Defense",
-				custom: "Your Pokemon",
-			},
-			titles: {
-				attack: "Attack Matchups",
-				defense: "Defense Matchups",
-				custom: "Defensive Matchups for Your Pokemon",
-			},
-			tableTypeHeader: "Type",
-			loadingTitle: "Loading",
-			loadingMessage: "Loading resources.",
-			errorTitle: "An error occurred",
-			errorMessage: "Failed to load required files.",
-			customLead: "Select one or two types to group incoming move matchups.",
-			typeFilterLabel: "Select Types",
-			typeToggleGroupLabel: "Select up to two types",
-			customHint: "You can select up to two types. Once two are selected, other unselected types become semi-transparent.",
-			emptyGroup: "None",
-			emptySelected: "None selected",
-			statusPrompt: "Select at least one type to see defensive matchups here.",
-			status(selectedNames) {
-				return `Defensive matchups for ${selectedNames.join(" / ")}. Incoming move types are grouped by multiplier.`
-			},
-			count(value) {
-				return `${value} ${value === 1 ? "type" : "types"}`
-			},
-		},
-	}
 
 	function createElement(tagName, options = {}) {
 		const element = document.createElement(tagName)
@@ -134,21 +66,128 @@
 		return normalized
 	}
 
-	function normalizeLocaleForUi(locale) {
-		const normalized = String(locale ?? "").trim().toLowerCase()
-		if (normalized.startsWith("ja")) {
-			return "ja"
-		}
-
-		if (normalized.startsWith("en")) {
-			return "en-US"
-		}
-
-		return "en-US"
+	function formatUiTemplate(template, values) {
+		return String(template ?? "").replace(/\{(\d+)\}/g, (_, indexText) => {
+			const index = Number(indexText)
+			return values[index] ?? ""
+		})
 	}
 
-	function getUiCopy(locale) {
-		return UI_COPY[normalizeLocaleForUi(locale)] ?? UI_COPY["en-US"]
+	function normalizeUiPayload(payload) {
+		if (!payload || typeof payload !== "object" || Array.isArray(payload)) {
+			throw new Error("ui text format is invalid")
+		}
+
+		return {
+			pageTitle: typeof payload.pageTitle === "string" ? payload.pageTitle : undefined,
+			heroTitle: typeof payload.heroTitle === "string" ? payload.heroTitle : undefined,
+			tabAriaLabel: typeof payload.tabAriaLabel === "string" ? payload.tabAriaLabel : undefined,
+			tabs: payload.tabs && typeof payload.tabs === "object" && !Array.isArray(payload.tabs) ? payload.tabs : undefined,
+			titles: payload.titles && typeof payload.titles === "object" && !Array.isArray(payload.titles) ? payload.titles : undefined,
+			tableTypeHeader: typeof payload.tableTypeHeader === "string" ? payload.tableTypeHeader : undefined,
+			loadingTitle: typeof payload.loadingTitle === "string" ? payload.loadingTitle : undefined,
+			loadingMessage: typeof payload.loadingMessage === "string" ? payload.loadingMessage : undefined,
+			errorTitle: typeof payload.errorTitle === "string" ? payload.errorTitle : undefined,
+			errorMessage: typeof payload.errorMessage === "string" ? payload.errorMessage : undefined,
+			customLead: typeof payload.customLead === "string" ? payload.customLead : undefined,
+			typeFilterLabel: typeof payload.typeFilterLabel === "string" ? payload.typeFilterLabel : undefined,
+			typeToggleGroupLabel: typeof payload.typeToggleGroupLabel === "string" ? payload.typeToggleGroupLabel : undefined,
+			customHint: typeof payload.customHint === "string" ? payload.customHint : undefined,
+			emptyGroup: typeof payload.emptyGroup === "string" ? payload.emptyGroup : undefined,
+			emptySelected: typeof payload.emptySelected === "string" ? payload.emptySelected : undefined,
+			statusPrompt: typeof payload.statusPrompt === "string" ? payload.statusPrompt : undefined,
+			statusTemplate: typeof payload.status === "string" ? payload.status : undefined,
+			countTemplate: typeof payload.count === "string" ? payload.count : undefined,
+		}
+	}
+
+	function createEmptyUi() {
+		return {
+			pageTitle: "",
+			heroTitle: "",
+			tabAriaLabel: "",
+			tabs: {
+				attack: "",
+				defense: "",
+				custom: "",
+			},
+			titles: {
+				attack: "",
+				defense: "",
+				custom: "",
+			},
+			tableTypeHeader: "",
+			loadingTitle: "",
+			loadingMessage: "",
+			errorTitle: "",
+			errorMessage: "",
+			customLead: "",
+			typeFilterLabel: "",
+			typeToggleGroupLabel: "",
+			customHint: "",
+			emptyGroup: "",
+			emptySelected: "",
+			statusPrompt: "",
+			status(selectedNames) {
+				return selectedNames.join(" / ")
+			},
+			count(value) {
+				return String(value)
+			},
+		}
+	}
+
+	function mergeUiCopy(...payloads) {
+		const fallbackUi = createEmptyUi()
+		const merged = {
+			...fallbackUi,
+			tabs: { ...fallbackUi.tabs },
+			titles: { ...fallbackUi.titles },
+		}
+		let statusTemplate
+		let countTemplate
+
+		payloads.forEach((payload) => {
+			if (!payload) {
+				return
+			}
+
+			Object.entries(payload).forEach(([key, value]) => {
+				if (value === undefined) {
+					return
+				}
+
+				if (key === "tabs" || key === "titles") {
+					merged[key] = {
+						...merged[key],
+						...value,
+					}
+					return
+				}
+
+				if (key === "statusTemplate") {
+					statusTemplate = value
+					return
+				}
+
+				if (key === "countTemplate") {
+					countTemplate = value
+					return
+				}
+
+				merged[key] = value
+			})
+		})
+
+		if (statusTemplate) {
+			merged.status = (selectedNames) => formatUiTemplate(statusTemplate, [selectedNames.join(" / ")])
+		}
+
+		if (countTemplate) {
+			merged.count = (value) => formatUiTemplate(countTemplate, [String(value)])
+		}
+
+		return merged
 	}
 
 	function buildLocaleCandidates() {
@@ -246,13 +285,12 @@
 		}
 	}
 
-	function normalizeTypeEntries(payload) {
+	function normalizeTypeAssetEntries(payload) {
 		const rawTypes = Array.isArray(payload?.Types)
 			? payload.Types
 			: payload && typeof payload === "object" && !Array.isArray(payload)
 				? Object.entries(payload).map(([key, entry]) => ({
 					Key: key,
-					Name: entry?.name,
 					Color: entry?.color,
 					FontColor: entry?.font_color,
 					OutlineColor: entry?.outline_color,
@@ -267,14 +305,12 @@
 		return rawTypes
 			.map((entry) => {
 				const key = normalizeTypeKey(entry?.Key ?? entry?.key)
-				const name = String(entry?.Name ?? entry?.name ?? "").trim()
-				if (!key || !name) {
+				if (!key) {
 					return null
 				}
 
 				return {
 					key,
-					name,
 					className: String(entry?.Style ?? entry?.style ?? `type-${key}`).trim() || `type-${key}`,
 					color: String(entry?.Color ?? entry?.color ?? "#DDD4C8").trim() || "#DDD4C8",
 					fontColor: String(entry?.FontColor ?? entry?.font_color ?? "#221912").trim() || "#221912",
@@ -284,12 +320,51 @@
 			.filter(Boolean)
 	}
 
-	function normalizeEffectivenessEntries(payload) {
+	function normalizeTypeTextEntries(payload) {
+		const rawTypes = Array.isArray(payload?.Types)
+			? payload.Types
+			: payload && typeof payload === "object" && !Array.isArray(payload)
+				? Object.entries(payload).map(([key, entry]) => ({
+					Key: key,
+					Name: entry?.name ?? entry?.Name,
+				}))
+				: null
+
+		if (!Array.isArray(rawTypes)) {
+			throw new Error("types text format is invalid")
+		}
+
+		return rawTypes
+			.map((entry) => {
+				const key = normalizeTypeKey(entry?.Key ?? entry?.key)
+				const name = String(entry?.Name ?? entry?.name ?? "").trim()
+				if (!key || !name) {
+					return null
+				}
+
+				return {
+					key,
+					name,
+				}
+			})
+			.filter(Boolean)
+	}
+
+	function normalizeEffectivenessAssetEntries(payload) {
 		const rawEntries = Array.isArray(payload?.Effectiveness)
 			? payload.Effectiveness
 			: Array.isArray(payload)
 				? payload
-				: null
+				: payload && typeof payload === "object" && !Array.isArray(payload)
+					? Object.entries(payload).map(([key, entry]) => ({
+						Key: entry?.Key ?? entry?.key ?? key,
+						DamageRate: entry?.DamageRate ?? entry?.damage_rate ?? entry?.damageRate,
+						RateKey: entry?.RateKey ?? entry?.rate_key ?? entry?.rateKey,
+						CardClass: entry?.CardClass ?? entry?.card_class ?? entry?.cardClass,
+						Label: entry?.Label ?? entry?.label,
+						DamageText: entry?.DamageText ?? entry?.damage_text ?? entry?.damageText,
+					}))
+					: null
 
 		if (!Array.isArray(rawEntries)) {
 			throw new Error("effectiveness data format is invalid")
@@ -299,17 +374,53 @@
 			.map((entry) => {
 				const damageRate = Number(entry?.DamageRate ?? entry?.damage_rate ?? entry?.damageRate)
 				const rateKey = String(entry?.RateKey ?? entry?.rate_key ?? formatDamageRate(damageRate)).trim()
-				if (!rateKey || !Number.isFinite(damageRate)) {
+				const key = String(entry?.Key ?? entry?.key ?? "").trim()
+				if (!key || !rateKey || !Number.isFinite(damageRate)) {
 					return null
 				}
 
 				return {
-					key: String(entry?.Key ?? entry?.key ?? "").trim(),
-					label: String(entry?.Label ?? entry?.label ?? rateKey).trim() || rateKey,
+					key,
+					label: String(entry?.Label ?? entry?.label ?? "").trim(),
 					damageRate,
 					rateKey,
 					damageText: String(entry?.DamageText ?? entry?.damage_text ?? "").trim(),
 					cardClass: String(entry?.CardClass ?? entry?.card_class ?? entry?.cardClass ?? "matchup-card").trim() || "matchup-card",
+				}
+			})
+			.filter(Boolean)
+	}
+
+	function normalizeEffectivenessTextEntries(payload) {
+		const rawEntries = Array.isArray(payload?.Effectiveness)
+			? payload.Effectiveness
+			: Array.isArray(payload)
+				? payload
+				: payload && typeof payload === "object" && !Array.isArray(payload)
+					? Object.entries(payload).map(([key, entry]) => ({
+						Key: entry?.Key ?? entry?.key ?? key,
+						Label: entry?.Label ?? entry?.label,
+						DamageText: entry?.DamageText ?? entry?.damage_text ?? entry?.damageText,
+						RateKey: entry?.RateKey ?? entry?.rate_key ?? entry?.rateKey,
+					}))
+					: null
+
+		if (!Array.isArray(rawEntries)) {
+			throw new Error("effectiveness text format is invalid")
+		}
+
+		return rawEntries
+			.map((entry) => {
+				const key = String(entry?.Key ?? entry?.key ?? "").trim()
+				if (!key) {
+					return null
+				}
+
+				return {
+					key,
+					label: String(entry?.Label ?? entry?.label ?? "").trim(),
+					damageText: String(entry?.DamageText ?? entry?.damage_text ?? "").trim(),
+					rateKey: String(entry?.RateKey ?? entry?.rate_key ?? "").trim(),
 				}
 			})
 			.filter(Boolean)
@@ -337,16 +448,25 @@
 		return response.text()
 	}
 
-	async function loadBaseData() {
-		const [typesPayload, effectivenessPayload, matrixCsv] = await Promise.all([
+	async function loadBaseUi() {
+		return normalizeUiPayload(await fetchJson(`locales/${DEFAULT_LOCALE}/ui.json`))
+	}
+
+	async function loadBaseData(baseUiText) {
+		const [typeAssetsPayload, typeTextsPayload, effectivenessAssetsPayload, effectivenessTextsPayload, matrixCsv] = await Promise.all([
 			fetchJson(DATA_PATHS.baseTypes),
+			fetchJson(`locales/${DEFAULT_LOCALE}/types.json`),
 			fetchJson(DATA_PATHS.baseEffectiveness),
+			fetchJson(`locales/${DEFAULT_LOCALE}/type-effectiveness.json`),
 			fetchText(DATA_PATHS.matchups),
 		])
 
 		return {
-			types: normalizeTypeEntries(typesPayload),
-			effectiveness: normalizeEffectivenessEntries(effectivenessPayload),
+			typeAssets: normalizeTypeAssetEntries(typeAssetsPayload),
+			typeTexts: normalizeTypeTextEntries(typeTextsPayload),
+			effectivenessAssets: normalizeEffectivenessAssetEntries(effectivenessAssetsPayload),
+			effectivenessTexts: normalizeEffectivenessTextEntries(effectivenessTextsPayload),
+			uiText: baseUiText,
 			matrixCsv: matrixCsv.trim(),
 		}
 	}
@@ -386,17 +506,32 @@
 	}
 
 	function mergeEffectiveness(baseEffectiveness, localizedEffectiveness) {
-		const localizedMap = new Map(localizedEffectiveness.map((entry) => [entry.rateKey, entry]))
+		const localizedByKey = new Map(localizedEffectiveness.map((entry) => [entry.key, entry]))
+		const localizedByRateKey = new Map(
+			localizedEffectiveness
+				.filter((entry) => entry.rateKey)
+				.map((entry) => [entry.rateKey, entry]),
+		)
 		const merged = baseEffectiveness.map((entry) => ({
 			...entry,
-			...(localizedMap.get(entry.rateKey) ?? {}),
+			...(localizedByKey.get(entry.key) ?? localizedByRateKey.get(entry.rateKey) ?? {}),
 			rateKey: entry.rateKey,
-			damageRate: Number(localizedMap.get(entry.rateKey)?.damageRate ?? entry.damageRate),
+			damageRate: Number(entry.damageRate),
+			label:
+				String(
+					(localizedByKey.get(entry.key) ?? localizedByRateKey.get(entry.rateKey) ?? {}).label ?? entry.label ?? "",
+				).trim() || entry.rateKey,
+			damageText:
+				String(
+					(localizedByKey.get(entry.key) ?? localizedByRateKey.get(entry.rateKey) ?? {}).damageText ??
+						entry.damageText ??
+						"",
+				).trim(),
 		}))
-		const seen = new Set(merged.map((entry) => entry.rateKey))
+		const seen = new Set(merged.map((entry) => entry.key))
 
 		localizedEffectiveness.forEach((entry) => {
-			if (!seen.has(entry.rateKey)) {
+			if (!seen.has(entry.key)) {
 				merged.push(entry)
 			}
 		})
@@ -406,16 +541,24 @@
 
 	async function loadLocalizedData(baseData) {
 		const candidates = buildLocaleCandidates()
-		const [typesResult, effectivenessResult] = await Promise.all([
-			loadLocaleFile(candidates, "types.json", normalizeTypeEntries),
-			loadLocaleFile(candidates, "type-effectiveness.json", normalizeEffectivenessEntries),
+		const [typesResult, effectivenessResult, uiResult] = await Promise.all([
+			loadLocaleFile(candidates, "types.json", normalizeTypeTextEntries),
+			loadLocaleFile(candidates, "type-effectiveness.json", normalizeEffectivenessTextEntries),
+			loadLocaleFile(candidates, "ui.json", normalizeUiPayload),
 		])
-		const resolvedLocale = typesResult?.locale ?? effectivenessResult?.locale ?? DEFAULT_LOCALE
+		const resolvedLocale = typesResult?.locale ?? effectivenessResult?.locale ?? uiResult?.locale ?? DEFAULT_LOCALE
 
 		return {
 			locale: resolvedLocale,
-			types: mergeTypes(baseData.types, typesResult?.entries ?? []),
-			effectiveness: mergeEffectiveness(baseData.effectiveness, effectivenessResult?.entries ?? []),
+			types: mergeTypes(
+				mergeTypes(baseData.typeAssets, baseData.typeTexts),
+				typesResult?.entries ?? [],
+			),
+			effectiveness: mergeEffectiveness(
+				mergeEffectiveness(baseData.effectivenessAssets, baseData.effectivenessTexts),
+				effectivenessResult?.entries ?? [],
+			),
+			ui: mergeUiCopy(baseData.uiText, uiResult?.entries),
 		}
 	}
 
@@ -674,7 +817,7 @@
 					className: "matchup-card-header",
 					children: [
 						createElement("h3", {
-							text: entry.label,
+							text: `${entry.label} (${entry.damageText})`,
 							attributes: {
 								"data-effectiveness-label": entry.rateKey,
 							},
@@ -1019,19 +1162,26 @@
 	}
 
 	async function init() {
-		const initialUi = getUiCopy(navigator.language)
-		document.title = initialUi.pageTitle
-		renderState(initialUi.loadingTitle, initialUi.loadingMessage, initialUi)
+		let currentUi = createEmptyUi()
+		renderState(currentUi.loadingTitle, currentUi.loadingMessage, currentUi)
 
 		try {
-			const baseData = await loadBaseData()
+			const baseUiText = await loadBaseUi()
+			currentUi = mergeUiCopy(baseUiText)
+			if (currentUi.pageTitle) {
+				document.title = currentUi.pageTitle
+			}
+			renderState(currentUi.loadingTitle, currentUi.loadingMessage, currentUi)
+
+			const baseData = await loadBaseData(baseUiText)
 			const localizedData = await loadLocalizedData(baseData)
-			const ui = getUiCopy(localizedData.locale)
+			const baseTypes = mergeTypes(baseData.typeAssets, baseData.typeTexts)
+			const ui = localizedData.ui
 			const typeMap = new Map(localizedData.types.map((typeInfo) => [typeInfo.key, typeInfo]))
 			const effectivenessByRate = new Map(localizedData.effectiveness.map((entry) => [entry.rateKey, entry]))
-			const baseTypeNameToKey = new Map(baseData.types.map((typeInfo) => [typeInfo.name, typeInfo.key]))
+			const baseTypeNameToKey = new Map(baseTypes.map((typeInfo) => [typeInfo.name, typeInfo.key]))
 			const matrix = buildMatrix(baseData.matrixCsv, baseTypeNameToKey)
-			const order = getTypeOrder(baseData.types, matrix)
+			const order = getTypeOrder(baseTypes, matrix)
 			const root = document.getElementById("app")
 
 			document.documentElement.lang = localizedData.locale
@@ -1041,7 +1191,10 @@
 			setupTabs()
 			initCustomMatchup(order, typeMap, matrix, localizedData.effectiveness, ui)
 		} catch (error) {
-			renderState(initialUi.errorTitle, initialUi.errorMessage, initialUi)
+			if (currentUi.pageTitle) {
+				document.title = currentUi.pageTitle
+			}
+			renderState(currentUi.errorTitle, currentUi.errorMessage, currentUi)
 			console.error(error)
 		}
 	}

@@ -5,10 +5,11 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
-			"name": "Python Debugger: Python File",
-			"type": "debugpy",
+			"type": "chrome",
 			"request": "launch",
-			"program": "src/build_index.py"
+			"name": "localhost に対して Chrome を起動する",
+			"url": "http://localhost:8080",
+			"webRoot": "${workspaceFolder}"
 		}
 	]
 }

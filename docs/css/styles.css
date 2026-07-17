@@ -6,17 +6,17 @@
 	--bg-tab-active: #ffffff;
 	--bg-tab-deactive: #dfdfdf;
 	--bg-table-wrap: rgb(255, 255, 255);
-	--bg-table-header-top: rgb(235, 235, 235);
+	--bg-table-header-top: hsl(0, 80%, 50%);
 	--bg-table-header-side: rgb(235, 235, 235);
-	--text-table-header: #2d241d;
+	--text-table-header: hsl(0, 0%, 100%);
 	--type-column-width: 140px;
 	--matchup-column-width: calc((100% - var(--type-column-width)) / 3);
 
 	--card-border: rgba(93, 68, 49, 0.14);
 	--focus-ring: rgba(85, 119, 255, 0.35);
 	--toggle-selected-outline: rgba(255, 0, 0, 0.92);
-	--text-main: #2d241d;
-	--text-sub: #6c625a;
+	--text-main: hsl(0, 0%, 20%);
+	--text-sub: hsl(0, 0%, 20%);
 	--shadow: 0 20px 40px rgba(70, 46, 28, 0.12);
 }
 

@@ -1,32 +1,26 @@
-[
-	{
-		"key": "extremely-effective",
+{
+	"extremely_effective": {
 		"label": "ちょうばつぐん",
 		"damage_text": "4倍"
 	},
-	{
-		"key": "super-effective",
+	"super_effective": {
 		"label": "ばつぐん",
 		"damage_text": "2倍"
 	},
-	{
-		"key": "neutral",
+	"neutral": {
 		"label": "ふつう",
 		"damage_text": "1.0倍"
 	},
-	{
-		"key": "not-very-effective",
+	"not_very_effective": {
 		"label": "いまひとつ",
 		"damage_text": "0.5倍"
 	},
-	{
-		"key": "mostly-ineffective",
+	"mostly_ineffective": {
 		"label": "かなりいまひとつ",
 		"damage_text": "0.25倍"
 	},
-	{
-		"key": "doesnt-affect",
+	"doesnt_affect": {
 		"label": "こうかがない",
 		"damage_text": "無効"
 	}
-]
+}
