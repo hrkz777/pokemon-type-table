@@ -11,7 +11,9 @@
 */
 .doesnt_affect
 {
-	width: 300px;
+	min-width: 100px;
+	max-width: 300px;
+	width: 200px;
 }
 
 .type-normal {
