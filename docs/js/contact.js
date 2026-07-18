@@ -3,8 +3,6 @@
 	const FALLBACK_LOCALE = "en-US"
 	const CONTACT_FILE_NAME = "contact.json"
 	const LOCALES_PATH = "../locales"
-	const ISSUE_NEW_URL = "https://github.com/hrkz777/pokemon-type-matchup/issues/new?template=contact.md"
-	const ISSUES_URL = "https://github.com/hrkz777/pokemon-type-matchup/issues"
 	const SITE_HOME_PATH = "../"
 
 	function createElement(tagName, options = {}) {
@@ -53,6 +51,8 @@
 			heroTitle: typeof payload.heroTitle === "string" ? payload.heroTitle : undefined,
 			introTitle: typeof payload.introTitle === "string" ? payload.introTitle : undefined,
 			lead: typeof payload.lead === "string" ? payload.lead : undefined,
+			issueCreateUrl: typeof payload.issueCreateUrl === "string" ? payload.issueCreateUrl : undefined,
+			issueListUrl: typeof payload.issueListUrl === "string" ? payload.issueListUrl : undefined,
 			flowTitle: typeof payload.flowTitle === "string" ? payload.flowTitle : undefined,
 			flowSteps: normalizeStringArray(payload.flowSteps),
 			pointsTitle: typeof payload.pointsTitle === "string" ? payload.pointsTitle : undefined,
@@ -72,6 +72,8 @@
 			heroTitle: "",
 			introTitle: "",
 			lead: "",
+			issueCreateUrl: "",
+			issueListUrl: "",
 			flowTitle: "",
 			flowSteps: [],
 			pointsTitle: "",
@@ -199,6 +201,21 @@
 		})
 	}
 
+	function createActionLink(className, text, href, attributes = {}) {
+		if (!text || !href) {
+			return null
+		}
+
+		return createElement("a", {
+			className,
+			text,
+			attributes: {
+				href,
+				...attributes,
+			},
+		})
+	}
+
 	function createContactPage(copy) {
 		return createElement("div", {
 			className: "page info-page",
@@ -257,31 +274,29 @@
 								createElement("div", {
 									className: "info-actions",
 									children: [
-										createElement("a", {
-											className: "info-action info-action-primary",
-											text: copy.createIssueLabel,
-											attributes: {
-												href: ISSUE_NEW_URL,
+										createActionLink(
+											"info-action info-action-primary",
+											copy.createIssueLabel,
+											copy.issueCreateUrl,
+											{
 												target: "_blank",
 												rel: "noopener noreferrer",
 											},
-										}),
-										createElement("a", {
-											className: "info-action info-action-secondary",
-											text: copy.issueListLabel,
-											attributes: {
-												href: ISSUES_URL,
+										),
+										createActionLink(
+											"info-action info-action-secondary",
+											copy.issueListLabel,
+											copy.issueListUrl,
+											{
 												target: "_blank",
 												rel: "noopener noreferrer",
 											},
-										}),
-										createElement("a", {
-											className: "info-action info-action-secondary",
-											text: copy.backToSiteLabel,
-											attributes: {
-												href: SITE_HOME_PATH,
-											},
-										}),
+										),
+										createActionLink(
+											"info-action info-action-secondary",
+											copy.backToSiteLabel,
+											SITE_HOME_PATH,
+										),
 									],
 								}),
 								createElement("p", {

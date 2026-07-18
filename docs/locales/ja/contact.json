@@ -3,6 +3,8 @@
 	"heroTitle": "お問い合わせ",
 	"introTitle": "GitHub Issue で受け付けています",
 	"lead": "不具合報告、改善案、データの誤りの連絡は GitHub の Issue を使って受け付けています。Issue は完璧に書けなくても問題ありません。少しでも気になった点があれば投稿してください。",
+	"issueCreateUrl": "https://github.com/hrkz777/pokemon-type-matchup/issues/new?template=contact_ja.yml",
+	"issueListUrl": "https://github.com/hrkz777/pokemon-type-matchup/issues",
 	"flowTitle": "投稿の流れ",
 	"flowSteps": [
 		"GitHub にログインします。アカウントがない場合は作成してください。",
@@ -32,7 +34,7 @@
 		"## 補足",
 		"画面名、画像、環境情報、関連リンクなど"
 	],
-	"createIssueLabel": "テンプレート付きで Issue を作成する",
+	"createIssueLabel": "Issue を作成する",
 	"issueListLabel": "既存の Issue を見る",
 	"backToSiteLabel": "サイトに戻る",
 	"note": "GitHub アカウントが必要です。短い報告でも問題ありませんが、具体的に書いていただけるほど確認しやすくなります。"

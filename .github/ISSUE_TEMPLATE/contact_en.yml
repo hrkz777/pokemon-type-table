@@ -1,0 +1,47 @@
+name: Contact
+description: Bug reports, improvement ideas, and data corrections
+title: ""
+labels: []
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form for bug reports, improvement ideas, and data corrections.
+        It does not need to be perfect. Please share what you know.
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: Describe what this inquiry is about.
+      placeholder: What this inquiry is about
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is happening
+      description: Describe the current behavior and what you expected instead.
+      placeholder: Current behavior and expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: List the steps if the issue can be reproduced.
+      placeholder: |-
+        1. What you did first
+        2. What you did next
+        3. What happened after that
+      render: markdown
+    validations:
+      required: false
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Add screen names, screenshots, environment details, or related links if available.
+      placeholder: Additional context
+    validations:
+      required: false
