@@ -1,6 +1,8 @@
 (() => {
 	const DEFAULT_LOCALE = "ja"
 	const FALLBACK_LOCALE = "en-US"
+	const CONTACT_PAGE_PATH = "contact/"
+	const REPOSITORY_URL = "https://github.com/hrkz777/pokemon-type-matchup"
 	const DATA_PATHS = {
 		baseTypes: "assets/types.json",
 		baseEffectiveness: "assets/type-effectiveness.json",
@@ -81,6 +83,8 @@
 		return {
 			pageTitle: typeof payload.pageTitle === "string" ? payload.pageTitle : undefined,
 			heroTitle: typeof payload.heroTitle === "string" ? payload.heroTitle : undefined,
+			contactLinkLabel: typeof payload.contactLinkLabel === "string" ? payload.contactLinkLabel : undefined,
+			repositoryLinkLabel: typeof payload.repositoryLinkLabel === "string" ? payload.repositoryLinkLabel : undefined,
 			tabAriaLabel: typeof payload.tabAriaLabel === "string" ? payload.tabAriaLabel : undefined,
 			tabs: payload.tabs && typeof payload.tabs === "object" && !Array.isArray(payload.tabs) ? payload.tabs : undefined,
 			titles: payload.titles && typeof payload.titles === "object" && !Array.isArray(payload.titles) ? payload.titles : undefined,
@@ -105,6 +109,8 @@
 		return {
 			pageTitle: "",
 			heroTitle: "",
+			contactLinkLabel: "",
+			repositoryLinkLabel: "",
 			tabAriaLabel: "",
 			tabs: {
 				attack: "",
@@ -941,6 +947,66 @@
 		})
 	}
 
+	function createPageFooter(ui) {
+		if (!ui.contactLinkLabel && !ui.repositoryLinkLabel) {
+			return null
+		}
+
+		const footerLinks = []
+		if (ui.contactLinkLabel) {
+			footerLinks.push({
+				label: ui.contactLinkLabel,
+				href: CONTACT_PAGE_PATH,
+			})
+		}
+		if (ui.repositoryLinkLabel) {
+			footerLinks.push({
+				label: ui.repositoryLinkLabel,
+				href: REPOSITORY_URL,
+				target: "_blank",
+				rel: "noopener noreferrer",
+			})
+		}
+
+		return createElement("footer", {
+			className: "site-footer",
+			children: [
+				createElement("div", {
+					className: "site-footer-inner",
+					children: [
+						createElement("nav", {
+							className: "site-footer-nav",
+							attributes: {
+								"aria-label": footerLinks.map((link) => link.label).join(" / "),
+							},
+							children: [
+								createElement("ul", {
+									className: "site-footer-nav-list",
+									children: footerLinks.map((link) => createElement("li", {
+											className: "site-footer-nav-item",
+											children: [
+												createElement("a", {
+													className: "site-footer-link",
+													text: link.label,
+													attributes: Object.fromEntries(
+														Object.entries({
+															href: link.href,
+															target: link.target,
+															rel: link.rel,
+														}).filter(([, value]) => value !== undefined),
+													),
+												}),
+											],
+										})),
+								}),
+							],
+						}),
+					],
+				}),
+			],
+		})
+	}
+
 	function createAppShell(ui, order, typeMap, effectiveness) {
 		const page = createElement("div", { className: "page" })
 		const hero = createElement("header", {
@@ -983,29 +1049,41 @@
 		shell.append(createTablePanel("defense", ui.titles.defense, false))
 		shell.append(createCustomPanel(ui, order, typeMap, effectiveness))
 		page.append(hero, shell)
+
+		const footer = createPageFooter(ui)
+		if (footer) {
+			page.append(footer)
+		}
+
 		return page
 	}
 
 	function renderState(title, message, ui) {
 		const root = document.getElementById("app")
+		const children = [
+			createElement("header", {
+				className: "hero",
+				children: [createElement("h1", { text: ui.heroTitle })],
+			}),
+			createElement("main", {
+				className: "shell",
+				children: [
+					createElement("section", {
+						className: "panel is-active",
+						children: [createPanelHeader(title, message)],
+					}),
+				],
+			}),
+		]
+		const footer = createPageFooter(ui)
+		if (footer) {
+			children.push(footer)
+		}
+
 		root.replaceChildren(
 			createElement("div", {
 				className: "page",
-				children: [
-					createElement("header", {
-						className: "hero",
-						children: [createElement("h1", { text: ui.heroTitle })],
-					}),
-					createElement("main", {
-						className: "shell",
-						children: [
-							createElement("section", {
-								className: "panel is-active",
-								children: [createPanelHeader(title, message)],
-							}),
-						],
-					}),
-				],
+				children,
 			}),
 		)
 	}

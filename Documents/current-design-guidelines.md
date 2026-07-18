@@ -163,12 +163,14 @@
 - 画面構築は `docs/js/app.js` が行う
 - `index.html` は最小シェルとし、UI の実体は JavaScript で組み立てる
 - CSS を前提に DOM を作るため、クラス名の意味を崩さない
+- 表示文字列は JavaScript に直書きしない
 
 ### データ
 
 - 非テキストデータは `docs/assets/`
 - ローカライズ文言は `docs/locales/<locale>/`
-- UI 文言は JavaScript に直接埋め込まない
+- UI 文言は HTML や JavaScript に直接埋め込まない
+- 表示文字列はページごとにロケールファイルへ分離する
 
 ## 現時点で避けるべきこと
 

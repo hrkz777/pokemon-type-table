@@ -1,0 +1,47 @@
+name: お問い合わせ
+description: 不具合報告、改善提案、データ修正の連絡
+title: ""
+labels: []
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        不具合報告、改善提案、データ修正の連絡を受け付けています。
+        分かる範囲で書いていただければ大丈夫です。
+  - type: textarea
+    id: summary
+    attributes:
+      label: 概要
+      description: 何についての問い合わせかを書いてください。
+      placeholder: 何についての問い合わせか
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: 困っていること
+      description: 起きていること、期待していたことを書いてください。
+      placeholder: 起きていることと期待していたこと
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 再現手順
+      description: 再現できる場合は手順を書いてください。
+      placeholder: |-
+        1. まず何をしたか
+        2. 次に何をしたか
+        3. その結果どうなったか
+      render: markdown
+    validations:
+      required: false
+  - type: textarea
+    id: context
+    attributes:
+      label: 補足
+      description: 画面名、画像、環境情報、関連リンクなどがあれば書いてください。
+      placeholder: 補足情報
+    validations:
+      required: false

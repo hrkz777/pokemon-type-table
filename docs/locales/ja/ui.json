@@ -1,6 +1,8 @@
 {
 	"pageTitle": "ポケモンタイプ相性表",
 	"heroTitle": "タイプ相性表",
+	"contactLinkLabel": "お問い合わせ",
+	"repositoryLinkLabel": "GitHubリポジトリ",
 	"tabAriaLabel": "タイプ相性ビュー",
 	"tabs": {
 		"attack": "攻撃側",

@@ -1,0 +1,41 @@
+{
+	"pageTitle": "Contact | Pokemon Type Matchup",
+	"heroTitle": "Contact",
+	"introTitle": "We accept inquiries through GitHub Issues",
+	"lead": "Use GitHub Issues for bug reports, improvement ideas, and data corrections. Your report does not need to be perfect. If something looks wrong, please let us know.",
+	"issueCreateUrl": "https://github.com/hrkz777/pokemon-type-matchup/issues/new?template=contact_en.yml",
+	"issueListUrl": "https://github.com/hrkz777/pokemon-type-matchup/issues",
+	"flowTitle": "How to submit",
+	"flowSteps": [
+		"Sign in to GitHub. If you do not have an account yet, create one first.",
+		"Check the existing issues to see whether the same report already exists.",
+		"Open a new issue and describe the problem or improvement you want to share."
+	],
+	"pointsTitle": "What to include",
+	"points": [
+		"Make the title specific enough to show what happened or what needs to be improved.",
+		"Describe the summary, the current problem, the steps to reproduce, and any supporting details.",
+		"Screen names, screenshots, and browser or device details make the report easier to confirm."
+	],
+	"templateTitle": "Example content",
+	"templateLines": [
+		"## Summary",
+		"What this inquiry is about",
+		"",
+		"## What is happening",
+		"Current behavior",
+		"Expected behavior",
+		"",
+		"## Steps to reproduce",
+		"1. What you did first",
+		"2. What you did next",
+		"3. What happened after that",
+		"",
+		"## Additional context",
+		"Screen names, screenshots, environment details, or related links"
+	],
+	"createIssueLabel": "Open the issue form",
+	"issueListLabel": "View existing issues",
+	"backToSiteLabel": "Back to the site",
+	"note": "A GitHub account is required. Short reports are welcome, but more detail makes the issue easier to verify."
+}
