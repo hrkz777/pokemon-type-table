@@ -17,115 +17,153 @@
 }
 
 .type-normal {
-	--type-bg: #AEAEAE;
-	--type-fg: #FFFDFA;
-	--type-outline: #7D7D7D;
+	--type-bg: rgb(174, 174, 174);
+	--type-fg: rgb(255, 253, 250, 1);
+	--type-outline: rgb(125, 125, 125, 1);
+
+	--type-row-bg: rgba(174, 174, 174, 0.3);
 }
 
 .type-fire {
-	--type-bg: #FFA766;
-	--type-fg: #FFFDFA;
-	--type-outline: #B87849;
+	--type-bg: rgb(255, 167, 102);
+	--type-fg: rgb(255, 253, 250);
+	--type-outline: rgb(184, 120, 73);
+
+	--type-row-bg: rgba(255, 167, 102, 0.3);
 }
 
 .type-water {
-	--type-bg: #64C5F7;
-	--type-fg: #FFFDFA;
-	--type-outline: #488EB2;
+	--type-bg: rgb(100, 197, 247);
+	--type-fg: rgb(255, 253, 250);
+	--type-outline: rgb(72, 142, 178);
+
+	--type-row-bg: rgba(100, 197, 247, 0.3);
 }
 
 .type-electric {
-	--type-bg: #F0DF1D;
-	--type-fg: #FFFDFA;
-	--type-outline: #A58F00;
+	--type-bg: rgb(240, 223, 29);
+	--type-fg: rgb(255, 253, 250);
+	--type-outline: rgb(165, 143, 0);
+
+	--type-row-bg: rgba(240, 223, 29, 0.3);
 }
 
 .type-grass {
-	--type-bg: #9AC30E;
-	--type-fg: #FFFDFA;
-	--type-outline: #6F8C0A;
+	--type-bg: rgb(154, 195, 14);
+	--type-fg: rgb(255, 253, 250);
+	--type-outline: rgb(111, 140, 10);
+
+	--type-row-bg: rgba(154, 195, 14, 0.3);
 }
 
 .type-ice {
-	--type-bg: #60E9F5;
-	--type-fg: #FFFDFA;
-	--type-outline: #45A8B0;
+	--type-bg: rgb(96, 233, 245);
+	--type-fg: rgb(255, 253, 250);
+	--type-outline: rgb(69, 168, 176);
+
+	--type-row-bg: rgba(96, 233, 245, 0.3);
 }
 
 .type-fighting {
-	--type-bg: #EE6969;
-	--type-fg: #FFFDFA;
-	--type-outline: #AB4C4C;
+	--type-bg: rgb(238, 105, 105);
+	--type-fg: rgb(255, 253, 250);
+	--type-outline: rgb(171, 76, 76);
+
+	--type-row-bg: rgba(238, 105, 105, 0.3);
 }
 
 .type-poison {
-	--type-bg: #AB7ACA;
-	--type-fg: #FFFDFA;
-	--type-outline: #7B5891;
+	--type-bg: rgb(171, 122, 202);
+	--type-fg: rgb(255, 253, 250);
+	--type-outline: rgb(123, 88, 145);
+
+	--type-row-bg: rgba(171, 122, 202, 0.3);
 }
 
 .type-ground {
-	--type-bg: #B88C5C;
-	--type-fg: #FFFDFA;
-	--type-outline: #825F3D;
+	--type-bg: rgb(184, 140, 92);
+	--type-fg: rgb(255, 253, 250);
+	--type-outline: rgb(130, 95, 61);
+
+	--type-row-bg: rgba(184, 140, 92, 0.3);
 }
 
 .type-flying {
-	--type-bg: #64A7F1;
-	--type-fg: #FFFDFA;
-	--type-outline: #4878AE;
+	--type-bg: rgb(100, 167, 241);
+	--type-fg: rgb(255, 253, 250);
+	--type-outline: rgb(72, 120, 174);
+
+	--type-row-bg: rgba(100, 167, 241, 0.3);
 }
 
 .type-psychic {
-	--type-bg: #EB7FF4;
-	--type-fg: #FFFDFA;
-	--type-outline: #A95BB0;
+	--type-bg: rgb(235, 127, 244);
+	--type-fg: rgb(255, 253, 250);
+	--type-outline: rgb(169, 91, 176);
+
+	--type-row-bg: rgba(235, 127, 244, 0.3);
 }
 
 .type-bug {
-	--type-bg: #51CB5A;
-	--type-fg: #FFFDFA;
-	--type-outline: #3A9241;
+	--type-bg: rgb(81, 203, 90);
+	--type-fg: rgb(255, 253, 250);
+	--type-outline: rgb(58, 146, 65);
+
+	--type-row-bg: rgba(81, 203, 90, 0.3);
 }
 
 .type-rock {
-	--type-bg: #DFB255;
-	--type-fg: #FFFDFA;
-	--type-outline: #9A7530;
+	--type-bg: rgb(223, 178, 85);
+	--type-fg: rgb(255, 253, 250);
+	--type-outline: rgb(154, 117, 48);
+
+	--type-row-bg: rgba(223, 178, 85, 0.3);
 }
 
 .type-ghost {
-	--type-bg: #8673AE;
-	--type-fg: #FFFDFA;
-	--type-outline: #5B527B;
+	--type-bg: rgb(134, 115, 174);
+	--type-fg: rgb(255, 253, 250);
+	--type-outline: rgb(91, 82, 123);
+
+	--type-row-bg: rgba(134, 115, 174, 0.3);
 }
 
 .type-dragon {
-	--type-bg: #7A69E8;
-	--type-fg: #FFFDFA;
-	--type-outline: #5649A6;
+	--type-bg: rgb(122, 105, 232);
+	--type-fg: rgb(255, 253, 250);
+	--type-outline: rgb(86, 73, 166);
+
+	--type-row-bg: rgba(122, 105, 232, 0.3);
 }
 
 .type-dark {
-	--type-bg: #5B6279;
-	--type-fg: #FFFDFA;
-	--type-outline: #3F4558;
+	--type-bg: rgb(91, 98, 121);
+	--type-fg: rgb(255, 253, 250);
+	--type-outline: rgb(63, 69, 88);
+
+	--type-row-bg: rgba(91, 98, 121, 0.3);
 }
 
 .type-steel {
-	--type-bg: #818AA4;
-	--type-fg: #FFFDFA;
-	--type-outline: #5D6376;
+	--type-bg: rgb(129, 138, 164);
+	--type-fg: rgb(255, 253, 250);
+	--type-outline: rgb(93, 99, 118);
+
+	--type-row-bg: rgba(129, 138, 164, 0.3);
 }
 
 .type-fairy {
-	--type-bg: #FC7799;
-	--type-fg: #FFFDFA;
-	--type-outline: #B5566E;
+	--type-bg: rgb(252, 119, 153);
+	--type-fg: rgb(255, 253, 250);
+	--type-outline: rgb(181, 86, 110);
+
+	--type-row-bg: rgba(252, 119, 153, 0.3);
 }
 
 .type-unknown {
-	--type-bg: #DDD4C8;
-	--type-fg: #221912;
+	--type-bg: rgb(221, 212, 200, 1);
+	--type-fg: rgb(34, 25, 18, 1);
 	--type-outline: rgba(34, 25, 18, 0.18);
+
+	--type-row-bg: rgba(221, 212, 200, 0.3);
 }

@@ -723,14 +723,20 @@
 		thead.append(headerRow)
 
 		summaries.forEach((summary) => {
-			const row = createElement("tr")
+			
+			const typeInfo = typeMap.get(summary.name)
+			const typeClass = typeInfo?.className
+			const row = createElement("tr", {
+				className:  typeClass
+			})
+			
 			row.append(
 				createElement("th", {
 					className: "row-heading",
 					attributes: { scope: "row" },
 					children: [
 						createElement("div", {
-							className: "row-heading-content",
+							className: `row-heading-content`,
 							children: [createTypeBadge(summary.name, typeMap)],
 						}),
 					],
