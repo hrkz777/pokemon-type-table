@@ -693,13 +693,15 @@
 		})
 	}
 
-	function createTable(summaries, typeMap, effectivenessByRate, ui) {
+	function createTable(summaries, typeMap, effectivenessByRate, ui, directionSymbol) {
+		// 攻撃相性一覧 / 防御相性一覧で使う相性表そのものを組み立てる。
 		const table = createElement("table")
 		const thead = createElement("thead")
 		const tbody = createElement("tbody")
 		const headerRow = createElement("tr")
 
 		headerRow.append(
+			// 左上の「タイプ」ヘッダー。
 			createElement("th", {
 				className: "column-type-header",
 				text: ui.tableTypeHeader,
@@ -709,6 +711,7 @@
 
 		TABLE_COLUMNS.forEach((column) => {
 			headerRow.append(
+				// 2倍 / 0.5倍 / 0倍 の列ヘッダー。
 				createElement("th", {
 					className: `column-matchup-header ${column.key}`,
 					text: effectivenessByRate.get(column.rateKey)?.label ?? column.rateKey,
@@ -723,15 +726,34 @@
 		thead.append(headerRow)
 
 		summaries.forEach((summary) => {
-			const row = createElement("tr")
+			
+			const typeInfo = typeMap.get(summary.name)
+			const typeClass = typeInfo?.className
+			const row = createElement("tr", {
+				className:  typeClass
+			})
+			
 			row.append(
+				// 行先頭に出すタイプ名セル。
 				createElement("th", {
 					className: "row-heading",
 					attributes: { scope: "row" },
 					children: [
+						// 行ヘッダー内部でタイプ名と攻防方向の矢印を横並びにするラッパー。
 						createElement("div", {
-							className: "row-heading-content",
-							children: [createTypeBadge(summary.name, typeMap)],
+							className: `row-heading-content`,
+							children: [
+								// 左側に出すタイプ名バッジ。
+								createTypeBadge(summary.name, typeMap),
+								// 黒背景セルの右端に寄せる攻撃 / 防御方向の矢印。
+								createElement("span", {
+									className: "row-heading-direction",
+									text: directionSymbol,
+									attributes: {
+										"aria-hidden": "true",
+									},
+								}),
+							],
 						}),
 					],
 				}),
@@ -739,6 +761,7 @@
 
 			TABLE_COLUMNS.forEach((column) => {
 				row.append(
+					// 各倍率カテゴリに対応するタイプ一覧セル。
 					createElement("td", {
 						className: "column-matchup-cell",
 						children: [renderTags(summary[column.key], typeMap, ui.emptyGroup)],
@@ -1028,12 +1051,14 @@
 			typeMap,
 			effectivenessByRate,
 			ui,
+			"→",
 		)
 		const defenseTable = createTable(
 			summarizeDefense(matrix, order),
 			typeMap,
 			effectivenessByRate,
 			ui,
+			"←",
 		)
 
 		document.getElementById("attack-table")?.replaceChildren(attackTable)
