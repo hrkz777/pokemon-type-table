@@ -496,8 +496,19 @@ tbody tr:hover .row-heading {
 }
 
 .row-heading-content {
-	display: grid;
-	gap: 6px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	width: 100%;
+}
+
+.row-heading-direction {
+	flex: 0 0 auto;
+	font-size: 1.15rem;
+	font-weight: 800;
+	line-height: 1;
+	color: rgba(255, 255, 255, 0.96);
 }
 
 .type-badge,
