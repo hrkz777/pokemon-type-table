@@ -2,6 +2,11 @@
 
 ポケモンのタイプ相性表を GitHub Pages 向けに公開するための静的サイトです。
 
+## リンク
+
+- GitHub Pages: https://hrkz777.github.io/pokemon-type-matchup/
+- GitHub リポジトリ: https://github.com/hrkz777/pokemon-type-matchup
+
 `docs/index.html` は最小のシェルだけを持ち、ページ本体は `docs/js/app.js` が読み込み時に生成します。相性表、自分のポケモン用の絞り込み UI、表示文言の切り替えはすべて JavaScript 側で組み立てます。
 
 ## データ構成
